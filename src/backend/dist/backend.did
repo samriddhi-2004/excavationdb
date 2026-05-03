@@ -1,0 +1,50 @@
+type WallType = 
+ variant {
+   DiaphragmWall;
+   Micropile;
+   SecantPile;
+   SheetPile;
+   SoldierPile;
+   TangentPile;
+ };
+type SystemDetail = 
+ record {
+   content: text;
+   systemId: text;
+   tabName: text;
+ };
+type ResearchPaper = 
+ record {
+   abstract: text;
+   categories: vec text;
+   doiLink: text;
+   id: text;
+   keyParameters: text;
+   method: text;
+   title: text;
+ };
+type ExcavationSystem = 
+ record {
+   description: text;
+   id: text;
+   name: text;
+   wallType: WallType;
+ };
+type ComparisonMetric = 
+ record {
+   costRange: text;
+   deflection: text;
+   installationTime: text;
+   maxHeight: float64;
+   mobilizationTime: text;
+   noisyVibration: text;
+   systemId: text;
+   waterControl: text;
+ };
+service : {
+  getAllMetrics: () -> (vec ComparisonMetric) query;
+  getPapers: () -> (vec ResearchPaper) query;
+  getPapersByCategory: (category: text) -> (vec ResearchPaper) query;
+  getSystemDetail: (systemId: text, tab: text) -> (opt SystemDetail) query;
+  getSystems: () -> (vec ExcavationSystem) query;
+}

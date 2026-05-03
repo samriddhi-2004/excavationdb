@@ -1,0 +1,19 @@
+{
+  "overview": "A comprehensive geotechnical engineering reference for underground excavation systems. Covers 6 retaining wall types with detailed technical tabs, a powerful comparison dashboard with charts and filters, a research papers library, and a machine learning roadmap page.",
+  "features": [
+    "Homepage with systems overview grid",
+    "6 system detail pages with 8 technical tabs each (Basic, Components, Soil Params, Earth Pressure, FEM, Parameter Effects, Design, Case Studies)",
+    "Comparison dashboard with sortable tables, bar/line charts, and filter panel",
+    "Research papers library with search, filter, and detail view",
+    "ML roadmap page with dataset and model explanations"
+  ],
+  "category": "education",
+  "tags": [
+    "geotechnical",
+    "excavation",
+    "engineering",
+    "comparison",
+    "research"
+  ],
+  "last_updated": "2026-05-03T10:27:23.947Z"
+}

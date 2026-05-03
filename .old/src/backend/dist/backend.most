@@ -1,0 +1,68 @@
+// Version: 1.0.0
+type ComparisonMetric__227900713 =
+  {
+    costRange : Text;
+    deflection : Text;
+    installationTime : Text;
+    maxHeight : Float;
+    mobilizationTime : Text;
+    noisyVibration : Text;
+    systemId : Text;
+    waterControl : Text
+  };
+type ExcavationSystem__511694624 =
+  {
+    description : Text;
+    id : Text;
+    name : Text;
+    wallType : WallType__245110133
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type ResearchPaper__885065014 =
+  {
+    abstract_ : Text;
+    categories : [Text];
+    doiLink : Text;
+    id : Text;
+    keyParameters : Text;
+    method : Text;
+    title : Text
+  };
+type SystemDetail__204568742 =
+  {content : Text; systemId : Text; tabName : Text};
+type WallType__245110133 =
+  {
+    #DiaphragmWall;
+    #Micropile;
+    #SecantPile;
+    #SheetPile;
+    #SoldierPile;
+    #TangentPile
+  };
+actor {
+  stable details :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?SystemDetail__204568742]];
+      var elementIndex : Nat__490723111
+    };
+  stable metrics :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ComparisonMetric__227900713]];
+      var elementIndex : Nat__490723111
+    };
+  stable papers :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ResearchPaper__885065014]];
+      var elementIndex : Nat__490723111
+    };
+  stable systems :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ExcavationSystem__511694624]];
+      var elementIndex : Nat__490723111
+    }
+};
