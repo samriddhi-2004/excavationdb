@@ -1,9 +1,32 @@
-import { c as createLucideIcon, r as reactExports, g as useLayoutEffect2, j as jsxRuntimeExports, P as Presence, h as Primitive, i as useControllableState, k as useComposedRefs, l as composeEventHandlers, m as createContextScope, a as cn, n as commonjsGlobal, o as getDefaultExportFromCjs, p as clsx, R as React, q as invariant, G as GitCompareArrows, e as Separator, C as ChevronDown } from "./index-BUl89JH6.js";
-import { B as Badge } from "./badge-DmeArO5X.js";
-import { a as useGetAllMetrics } from "./api-DuO2vhnj.js";
-import { C as COMPARISON_METRICS, S as SYSTEMS } from "./data-DBpipvIs.js";
-import { C as ChevronUp } from "./chevron-up-C8qNkKvu.js";
-import { C as ChevronsUpDown } from "./chevrons-up-down-CirCRLgy.js";
+import { c as createLucideIcon, g as commonjsGlobal, h as getDefaultExportFromCjs, r as reactExports, i as clsx, R as React, k as invariant, j as jsxRuntimeExports, C as ChevronDown, l as useLayoutEffect2, P as Presence, m as Primitive, n as useControllableState, o as useComposedRefs, p as composeEventHandlers, q as createContextScope, a as cn, G as GitCompareArrows, e as Separator } from "./index-DUkTmDMn.js";
+import { I as INPUT_PARAM_OPTIONS, O as OUTPUT_PARAM_OPTIONS, G as GRAPH_DATA, a as INPUT_EFFECT_ROWS, b as OUTPUT_RANGE_ROWS, C as COMPARISON_METRICS, S as SYSTEMS, A as ALL_METRIC_IDS, M as METRIC_ROWS } from "./data-BZPzXv08.js";
+import { B as Badge } from "./badge-Bv2Vw58l.js";
+import { C as ChevronsUpDown } from "./chevrons-up-down-BeqxA0r1.js";
+import { C as ChevronUp } from "./chevron-up-CUcdNnFf.js";
+import { a as useGetAllMetrics } from "./api-BrGxCIYS.js";
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$5 = [
+  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
+  ["path", { d: "m19 9-5 5-4-4-3 3", key: "2osh9i" }]
+];
+const ChartLine = createLucideIcon("chart-line", __iconNode$5);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$4 = [
+  ["line", { x1: "18", x2: "18", y1: "20", y2: "10", key: "1xfpm4" }],
+  ["line", { x1: "12", x2: "12", y1: "20", y2: "4", key: "be30l9" }],
+  ["line", { x1: "6", x2: "6", y1: "20", y2: "14", key: "1r4le6" }]
+];
+const ChartNoAxesColumn = createLucideIcon("chart-no-axes-column", __iconNode$4);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -53,331 +76,6 @@ const __iconNode = [
   ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
 ];
 const TrendingUp = createLucideIcon("trending-up", __iconNode);
-function usePrevious(value) {
-  const ref = reactExports.useRef({ value, previous: value });
-  return reactExports.useMemo(() => {
-    if (ref.current.value !== value) {
-      ref.current.previous = ref.current.value;
-      ref.current.value = value;
-    }
-    return ref.current.previous;
-  }, [value]);
-}
-function useSize(element) {
-  const [size, setSize] = reactExports.useState(void 0);
-  useLayoutEffect2(() => {
-    if (element) {
-      setSize({ width: element.offsetWidth, height: element.offsetHeight });
-      const resizeObserver = new ResizeObserver((entries) => {
-        if (!Array.isArray(entries)) {
-          return;
-        }
-        if (!entries.length) {
-          return;
-        }
-        const entry = entries[0];
-        let width;
-        let height;
-        if ("borderBoxSize" in entry) {
-          const borderSizeEntry = entry["borderBoxSize"];
-          const borderSize = Array.isArray(borderSizeEntry) ? borderSizeEntry[0] : borderSizeEntry;
-          width = borderSize["inlineSize"];
-          height = borderSize["blockSize"];
-        } else {
-          width = element.offsetWidth;
-          height = element.offsetHeight;
-        }
-        setSize({ width, height });
-      });
-      resizeObserver.observe(element, { box: "border-box" });
-      return () => resizeObserver.unobserve(element);
-    } else {
-      setSize(void 0);
-    }
-  }, [element]);
-  return size;
-}
-var CHECKBOX_NAME = "Checkbox";
-var [createCheckboxContext] = createContextScope(CHECKBOX_NAME);
-var [CheckboxProviderImpl, useCheckboxContext] = createCheckboxContext(CHECKBOX_NAME);
-function CheckboxProvider(props) {
-  const {
-    __scopeCheckbox,
-    checked: checkedProp,
-    children,
-    defaultChecked,
-    disabled,
-    form,
-    name,
-    onCheckedChange,
-    required,
-    value = "on",
-    // @ts-expect-error
-    internal_do_not_use_render
-  } = props;
-  const [checked, setChecked] = useControllableState({
-    prop: checkedProp,
-    defaultProp: defaultChecked ?? false,
-    onChange: onCheckedChange,
-    caller: CHECKBOX_NAME
-  });
-  const [control, setControl] = reactExports.useState(null);
-  const [bubbleInput, setBubbleInput] = reactExports.useState(null);
-  const hasConsumerStoppedPropagationRef = reactExports.useRef(false);
-  const isFormControl = control ? !!form || !!control.closest("form") : (
-    // We set this to true by default so that events bubble to forms without JS (SSR)
-    true
-  );
-  const context = {
-    checked,
-    disabled,
-    setChecked,
-    control,
-    setControl,
-    name,
-    form,
-    value,
-    hasConsumerStoppedPropagationRef,
-    required,
-    defaultChecked: isIndeterminate(defaultChecked) ? false : defaultChecked,
-    isFormControl,
-    bubbleInput,
-    setBubbleInput
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    CheckboxProviderImpl,
-    {
-      scope: __scopeCheckbox,
-      ...context,
-      children: isFunction$4(internal_do_not_use_render) ? internal_do_not_use_render(context) : children
-    }
-  );
-}
-var TRIGGER_NAME = "CheckboxTrigger";
-var CheckboxTrigger = reactExports.forwardRef(
-  ({ __scopeCheckbox, onKeyDown, onClick, ...checkboxProps }, forwardedRef) => {
-    const {
-      control,
-      value,
-      disabled,
-      checked,
-      required,
-      setControl,
-      setChecked,
-      hasConsumerStoppedPropagationRef,
-      isFormControl,
-      bubbleInput
-    } = useCheckboxContext(TRIGGER_NAME, __scopeCheckbox);
-    const composedRefs = useComposedRefs(forwardedRef, setControl);
-    const initialCheckedStateRef = reactExports.useRef(checked);
-    reactExports.useEffect(() => {
-      const form = control == null ? void 0 : control.form;
-      if (form) {
-        const reset = () => setChecked(initialCheckedStateRef.current);
-        form.addEventListener("reset", reset);
-        return () => form.removeEventListener("reset", reset);
-      }
-    }, [control, setChecked]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Primitive.button,
-      {
-        type: "button",
-        role: "checkbox",
-        "aria-checked": isIndeterminate(checked) ? "mixed" : checked,
-        "aria-required": required,
-        "data-state": getState(checked),
-        "data-disabled": disabled ? "" : void 0,
-        disabled,
-        value,
-        ...checkboxProps,
-        ref: composedRefs,
-        onKeyDown: composeEventHandlers(onKeyDown, (event) => {
-          if (event.key === "Enter") event.preventDefault();
-        }),
-        onClick: composeEventHandlers(onClick, (event) => {
-          setChecked((prevChecked) => isIndeterminate(prevChecked) ? true : !prevChecked);
-          if (bubbleInput && isFormControl) {
-            hasConsumerStoppedPropagationRef.current = event.isPropagationStopped();
-            if (!hasConsumerStoppedPropagationRef.current) event.stopPropagation();
-          }
-        })
-      }
-    );
-  }
-);
-CheckboxTrigger.displayName = TRIGGER_NAME;
-var Checkbox$1 = reactExports.forwardRef(
-  (props, forwardedRef) => {
-    const {
-      __scopeCheckbox,
-      name,
-      checked,
-      defaultChecked,
-      required,
-      disabled,
-      value,
-      onCheckedChange,
-      form,
-      ...checkboxProps
-    } = props;
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      CheckboxProvider,
-      {
-        __scopeCheckbox,
-        checked,
-        defaultChecked,
-        disabled,
-        required,
-        onCheckedChange,
-        name,
-        form,
-        value,
-        internal_do_not_use_render: ({ isFormControl }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            CheckboxTrigger,
-            {
-              ...checkboxProps,
-              ref: forwardedRef,
-              __scopeCheckbox
-            }
-          ),
-          isFormControl && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            CheckboxBubbleInput,
-            {
-              __scopeCheckbox
-            }
-          )
-        ] })
-      }
-    );
-  }
-);
-Checkbox$1.displayName = CHECKBOX_NAME;
-var INDICATOR_NAME = "CheckboxIndicator";
-var CheckboxIndicator = reactExports.forwardRef(
-  (props, forwardedRef) => {
-    const { __scopeCheckbox, forceMount, ...indicatorProps } = props;
-    const context = useCheckboxContext(INDICATOR_NAME, __scopeCheckbox);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Presence,
-      {
-        present: forceMount || isIndeterminate(context.checked) || context.checked === true,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Primitive.span,
-          {
-            "data-state": getState(context.checked),
-            "data-disabled": context.disabled ? "" : void 0,
-            ...indicatorProps,
-            ref: forwardedRef,
-            style: { pointerEvents: "none", ...props.style }
-          }
-        )
-      }
-    );
-  }
-);
-CheckboxIndicator.displayName = INDICATOR_NAME;
-var BUBBLE_INPUT_NAME = "CheckboxBubbleInput";
-var CheckboxBubbleInput = reactExports.forwardRef(
-  ({ __scopeCheckbox, ...props }, forwardedRef) => {
-    const {
-      control,
-      hasConsumerStoppedPropagationRef,
-      checked,
-      defaultChecked,
-      required,
-      disabled,
-      name,
-      value,
-      form,
-      bubbleInput,
-      setBubbleInput
-    } = useCheckboxContext(BUBBLE_INPUT_NAME, __scopeCheckbox);
-    const composedRefs = useComposedRefs(forwardedRef, setBubbleInput);
-    const prevChecked = usePrevious(checked);
-    const controlSize = useSize(control);
-    reactExports.useEffect(() => {
-      const input = bubbleInput;
-      if (!input) return;
-      const inputProto = window.HTMLInputElement.prototype;
-      const descriptor = Object.getOwnPropertyDescriptor(
-        inputProto,
-        "checked"
-      );
-      const setChecked = descriptor.set;
-      const bubbles = !hasConsumerStoppedPropagationRef.current;
-      if (prevChecked !== checked && setChecked) {
-        const event = new Event("click", { bubbles });
-        input.indeterminate = isIndeterminate(checked);
-        setChecked.call(input, isIndeterminate(checked) ? false : checked);
-        input.dispatchEvent(event);
-      }
-    }, [bubbleInput, prevChecked, checked, hasConsumerStoppedPropagationRef]);
-    const defaultCheckedRef = reactExports.useRef(isIndeterminate(checked) ? false : checked);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Primitive.input,
-      {
-        type: "checkbox",
-        "aria-hidden": true,
-        defaultChecked: defaultChecked ?? defaultCheckedRef.current,
-        required,
-        disabled,
-        name,
-        value,
-        form,
-        ...props,
-        tabIndex: -1,
-        ref: composedRefs,
-        style: {
-          ...props.style,
-          ...controlSize,
-          position: "absolute",
-          pointerEvents: "none",
-          opacity: 0,
-          margin: 0,
-          // We transform because the input is absolutely positioned but we have
-          // rendered it **after** the button. This pulls it back to sit on top
-          // of the button.
-          transform: "translateX(-100%)"
-        }
-      }
-    );
-  }
-);
-CheckboxBubbleInput.displayName = BUBBLE_INPUT_NAME;
-function isFunction$4(value) {
-  return typeof value === "function";
-}
-function isIndeterminate(checked) {
-  return checked === "indeterminate";
-}
-function getState(checked) {
-  return isIndeterminate(checked) ? "indeterminate" : checked ? "checked" : "unchecked";
-}
-function Checkbox({
-  className,
-  ...props
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Checkbox$1,
-    {
-      "data-slot": "checkbox",
-      className: cn(
-        "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
-        className
-      ),
-      ...props,
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        CheckboxIndicator,
-        {
-          "data-slot": "checkbox-indicator",
-          className: "flex items-center justify-center text-current transition-none",
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "size-3.5" })
-        }
-      )
-    }
-  );
-}
 var isArray$e = Array.isArray;
 var isArray_1 = isArray$e;
 var freeGlobal$1 = typeof commonjsGlobal == "object" && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
@@ -459,15 +157,15 @@ var isObject_1 = isObject$7;
 const isObject$8 = /* @__PURE__ */ getDefaultExportFromCjs(isObject_1);
 var baseGetTag$7 = _baseGetTag, isObject$6 = isObject_1;
 var asyncTag = "[object AsyncFunction]", funcTag$1 = "[object Function]", genTag = "[object GeneratorFunction]", proxyTag = "[object Proxy]";
-function isFunction$2(value) {
+function isFunction$3(value) {
   if (!isObject$6(value)) {
     return false;
   }
   var tag = baseGetTag$7(value);
   return tag == funcTag$1 || tag == genTag || tag == asyncTag || tag == proxyTag;
 }
-var isFunction_1 = isFunction$2;
-const isFunction$3 = /* @__PURE__ */ getDefaultExportFromCjs(isFunction_1);
+var isFunction_1 = isFunction$3;
+const isFunction$4 = /* @__PURE__ */ getDefaultExportFromCjs(isFunction_1);
 var root$7 = _root;
 var coreJsData$1 = root$7["__core-js_shared__"];
 var _coreJsData = coreJsData$1;
@@ -496,7 +194,7 @@ function toSource$2(func) {
   return "";
 }
 var _toSource = toSource$2;
-var isFunction$1 = isFunction_1, isMasked = _isMasked, isObject$5 = isObject_1, toSource$1 = _toSource;
+var isFunction$2 = isFunction_1, isMasked = _isMasked, isObject$5 = isObject_1, toSource$1 = _toSource;
 var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
 var funcProto$1 = Function.prototype, objectProto$a = Object.prototype;
@@ -509,7 +207,7 @@ function baseIsNative$1(value) {
   if (!isObject$5(value) || isMasked(value)) {
     return false;
   }
-  var pattern = isFunction$1(value) ? reIsNative : reIsHostCtor;
+  var pattern = isFunction$2(value) ? reIsNative : reIsHostCtor;
   return pattern.test(toSource$1(value));
 }
 var _baseIsNative = baseIsNative$1;
@@ -1567,7 +1265,7 @@ var hasClipDot = function hasClipDot2(dot) {
 var isValidSpreadableProp = function isValidSpreadableProp2(property2, key, includeEvents, svgElementType) {
   var _FilteredElementKeyMa;
   var matchingElementTypeKeys = (_FilteredElementKeyMa = FilteredElementKeyMap === null || FilteredElementKeyMap === void 0 ? void 0 : FilteredElementKeyMap[svgElementType]) !== null && _FilteredElementKeyMa !== void 0 ? _FilteredElementKeyMa : [];
-  return key.startsWith("data-") || !isFunction$3(property2) && (svgElementType && matchingElementTypeKeys.includes(key) || SVGElementPropKeys.includes(key)) || includeEvents && EventKeys.includes(key);
+  return key.startsWith("data-") || !isFunction$4(property2) && (svgElementType && matchingElementTypeKeys.includes(key) || SVGElementPropKeys.includes(key)) || includeEvents && EventKeys.includes(key);
 };
 var filterProps = function filterProps2(props, includeEvents, svgElementType) {
   if (!props || typeof props === "function" || typeof props === "boolean") {
@@ -3116,9 +2814,9 @@ var DefaultLegendContent = /* @__PURE__ */ function(_PureComponent) {
         if (entry.type === "none") {
           return null;
         }
-        var entryValue = !isFunction$3(entry.value) ? entry.value : null;
+        var entryValue = !isFunction$4(entry.value) ? entry.value : null;
         warn(
-          !isFunction$3(entry.value),
+          !isFunction$4(entry.value),
           `The name property is also required when using a function for the dataKey of a chart's cartesian components. Ex: <Bar name="Name of my Data"/>`
           // eslint-disable-line max-len
         );
@@ -3554,9 +3252,9 @@ function baseKeys$1(object2) {
   return result;
 }
 var _baseKeys = baseKeys$1;
-var isFunction = isFunction_1, isLength$1 = isLength_1;
+var isFunction$1 = isFunction_1, isLength$1 = isLength_1;
 function isArrayLike$5(value) {
-  return value != null && isLength$1(value.length) && !isFunction(value);
+  return value != null && isLength$1(value.length) && !isFunction$1(value);
 }
 var isArrayLike_1 = isArrayLike$5;
 var arrayLikeKeys = _arrayLikeKeys, baseKeys = _baseKeys, isArrayLike$4 = isArrayLike_1;
@@ -3953,7 +3651,7 @@ function getUniqPayload(payload, option, defaultUniqBy2) {
   if (option === true) {
     return uniqBy$1(payload, defaultUniqBy2);
   }
-  if (isFunction$3(option)) {
+  if (isFunction$4(option)) {
     return uniqBy$1(payload, option);
   }
   return payload;
@@ -10723,7 +10421,7 @@ function getValueByDataKey(obj, dataKey, defaultValue) {
   if (isNumOrStr(dataKey)) {
     return get$2(obj, dataKey, defaultValue);
   }
-  if (isFunction$3(dataKey)) {
+  if (isFunction$4(dataKey)) {
     return dataKey(obj);
   }
   return defaultValue;
@@ -11171,7 +10869,7 @@ var parseScale = function parseScale2(axis, chartType, hasBar) {
       realScaleType: d3Scales[name] ? name : "point"
     };
   }
-  return isFunction$3(scale) ? {
+  return isFunction$4(scale) ? {
     scale
   } : {
     scale: point(),
@@ -11442,7 +11140,7 @@ var getDomainOfStackGroups = function getDomainOfStackGroups2(stackGroups, start
 var MIN_VALUE_REG = /^dataMin[\s]*-[\s]*([0-9]+([.]{1}[0-9]+){0,1})$/;
 var MAX_VALUE_REG = /^dataMax[\s]*\+[\s]*([0-9]+([.]{1}[0-9]+){0,1})$/;
 var parseSpecifiedDomain = function parseSpecifiedDomain2(specifiedDomain, dataDomain, allowDataOverflow) {
-  if (isFunction$3(specifiedDomain)) {
+  if (isFunction$4(specifiedDomain)) {
     return specifiedDomain(dataDomain, allowDataOverflow);
   }
   if (!Array.isArray(specifiedDomain)) {
@@ -11454,7 +11152,7 @@ var parseSpecifiedDomain = function parseSpecifiedDomain2(specifiedDomain, dataD
   } else if (MIN_VALUE_REG.test(specifiedDomain[0])) {
     var value = +MIN_VALUE_REG.exec(specifiedDomain[0])[1];
     domain[0] = dataDomain[0] - value;
-  } else if (isFunction$3(specifiedDomain[0])) {
+  } else if (isFunction$4(specifiedDomain[0])) {
     domain[0] = specifiedDomain[0](dataDomain[0]);
   } else {
     domain[0] = dataDomain[0];
@@ -11464,7 +11162,7 @@ var parseSpecifiedDomain = function parseSpecifiedDomain2(specifiedDomain, dataD
   } else if (MAX_VALUE_REG.test(specifiedDomain[1])) {
     var _value = +MAX_VALUE_REG.exec(specifiedDomain[1])[1];
     domain[1] = dataDomain[1] + _value;
-  } else if (isFunction$3(specifiedDomain[1])) {
+  } else if (isFunction$4(specifiedDomain[1])) {
     domain[1] = specifiedDomain[1](dataDomain[1]);
   } else {
     domain[1] = dataDomain[1];
@@ -11789,7 +11487,7 @@ function _extends$j() {
 var getLabel = function getLabel2(props) {
   var value = props.value, formatter = props.formatter;
   var label = isNil$1(props.children) ? value : props.children;
-  if (isFunction$3(formatter)) {
+  if (isFunction$4(formatter)) {
     return formatter(label);
   }
   return label;
@@ -12028,14 +11726,14 @@ function Label(_ref4) {
     offset
   }, restProps);
   var viewBox = props.viewBox, position = props.position, value = props.value, children = props.children, content = props.content, _props$className = props.className, className = _props$className === void 0 ? "" : _props$className, textBreakAll = props.textBreakAll;
-  if (!viewBox || isNil$1(value) && isNil$1(children) && !/* @__PURE__ */ reactExports.isValidElement(content) && !isFunction$3(content)) {
+  if (!viewBox || isNil$1(value) && isNil$1(children) && !/* @__PURE__ */ reactExports.isValidElement(content) && !isFunction$4(content)) {
     return null;
   }
   if (/* @__PURE__ */ reactExports.isValidElement(content)) {
     return /* @__PURE__ */ reactExports.cloneElement(content, props);
   }
   var label;
-  if (isFunction$3(content)) {
+  if (isFunction$4(content)) {
     label = /* @__PURE__ */ reactExports.createElement(content, props);
     if (/* @__PURE__ */ reactExports.isValidElement(label)) {
       return label;
@@ -12133,7 +11831,7 @@ var parseLabel = function parseLabel2(label, viewBox) {
       viewBox
     });
   }
-  if (isFunction$3(label)) {
+  if (isFunction$4(label)) {
     return /* @__PURE__ */ React.createElement(Label, {
       key: "label-implicit",
       content: label,
@@ -12334,7 +12032,7 @@ function parseLabelList(label, data) {
       data
     });
   }
-  if (/* @__PURE__ */ React.isValidElement(label) || isFunction$3(label)) {
+  if (/* @__PURE__ */ React.isValidElement(label) || isFunction$4(label)) {
     return /* @__PURE__ */ React.createElement(LabelList, {
       key: "labelList-implicit",
       data,
@@ -12680,7 +12378,7 @@ var getY = function getY2(p2) {
   return p2.y;
 };
 var getCurveFactory = function getCurveFactory2(type, layout) {
-  if (isFunction$3(type)) {
+  if (isFunction$4(type)) {
     return type;
   }
   var name = "curve".concat(upperFirst$1(type));
@@ -14981,7 +14679,7 @@ function Shape(_ref2) {
   var shape;
   if (/* @__PURE__ */ reactExports.isValidElement(option)) {
     shape = /* @__PURE__ */ reactExports.cloneElement(option, _objectSpread$e(_objectSpread$e({}, props), getPropsFromShapeOption(option)));
-  } else if (isFunction$3(option)) {
+  } else if (isFunction$4(option)) {
     shape = option(props);
   } else if (isPlainObject$1(option) && !isBoolean$1(option)) {
     var nextProps = propTransformer(option, props);
@@ -15445,7 +15143,7 @@ var Brush = /* @__PURE__ */ function(_PureComponent) {
     value: function getTextOfTick(index) {
       var _this$props3 = this.props, data = _this$props3.data, tickFormatter = _this$props3.tickFormatter, dataKey = _this$props3.dataKey;
       var text = getValueByDataKey(data[index], dataKey, index);
-      return isFunction$3(tickFormatter) ? tickFormatter(text, index) : text;
+      return isFunction$4(tickFormatter) ? tickFormatter(text, index) : text;
     }
   }, {
     key: "attachDragEndListener",
@@ -15733,7 +15431,7 @@ var Brush = /* @__PURE__ */ function(_PureComponent) {
       var rectangle;
       if (/* @__PURE__ */ React.isValidElement(option)) {
         rectangle = /* @__PURE__ */ React.cloneElement(option, props);
-      } else if (isFunction$3(option)) {
+      } else if (isFunction$4(option)) {
         rectangle = option(props);
       } else {
         rectangle = Brush2.renderDefaultTraveller(props);
@@ -17119,7 +16817,7 @@ var renderLine = function renderLine2(option, props) {
   var line;
   if (/* @__PURE__ */ React.isValidElement(option)) {
     line = /* @__PURE__ */ React.cloneElement(option, props);
-  } else if (isFunction$3(option)) {
+  } else if (isFunction$4(option)) {
     line = option(props);
   } else {
     line = /* @__PURE__ */ React.createElement("line", _extends$8({}, props, {
@@ -17451,7 +17149,7 @@ _defineProperty$a(ReferenceDot, "renderDot", function(option, props) {
   var dot;
   if (/* @__PURE__ */ React.isValidElement(option)) {
     dot = /* @__PURE__ */ React.cloneElement(option, props);
-  } else if (isFunction$3(option)) {
+  } else if (isFunction$4(option)) {
     dot = option(props);
   } else {
     dot = /* @__PURE__ */ React.createElement(Dot, _extends$7({}, props, {
@@ -17671,7 +17369,7 @@ _defineProperty$9(ReferenceArea, "renderRect", function(option, props) {
   var rect;
   if (/* @__PURE__ */ React.isValidElement(option)) {
     rect = /* @__PURE__ */ React.cloneElement(option, props);
-  } else if (isFunction$3(option)) {
+  } else if (isFunction$4(option)) {
     rect = option(props);
   } else {
     rect = /* @__PURE__ */ React.createElement(Rectangle, _extends$6({}, props, {
@@ -17926,7 +17624,7 @@ function getTicks(props, fontSize, letterSpacing) {
     height: 0
   };
   var getTickSize = function getTickSize2(content, index) {
-    var value = isFunction$3(tickFormatter) ? tickFormatter(content.value, index) : content.value;
+    var value = isFunction$4(tickFormatter) ? tickFormatter(content.value, index) : content.value;
     return sizeKey === "width" ? getAngledTickWidth(getStringSize(value, {
       fontSize,
       letterSpacing
@@ -18306,7 +18004,7 @@ var CartesianAxis = /* @__PURE__ */ function(_Component) {
             key: "tick-".concat(entry.value, "-").concat(entry.coordinate, "-").concat(entry.tickCoord)
           }, adaptEventsOfChild(_this2.props, entry, i)), tickLine && /* @__PURE__ */ React.createElement("line", _extends$5({}, tickLineProps, lineCoord, {
             className: clsx("recharts-cartesian-axis-tick-line", get$2(tickLine, "className"))
-          })), tick && CartesianAxis2.renderTickItem(tick, tickProps, "".concat(isFunction$3(tickFormatter) ? tickFormatter(entry.value, i) : entry.value).concat(unit2 || "")));
+          })), tick && CartesianAxis2.renderTickItem(tick, tickProps, "".concat(isFunction$4(tickFormatter) ? tickFormatter(entry.value, i) : entry.value).concat(unit2 || "")));
         });
         return /* @__PURE__ */ React.createElement("g", {
           className: "recharts-cartesian-axis-ticks"
@@ -18323,7 +18021,7 @@ var CartesianAxis = /* @__PURE__ */ function(_Component) {
       }
       var _this$props8 = this.props, ticks2 = _this$props8.ticks, noTicksProps = _objectWithoutProperties$3(_this$props8, _excluded3);
       var finalTicks = ticks2;
-      if (isFunction$3(ticksGenerator)) {
+      if (isFunction$4(ticksGenerator)) {
         finalTicks = ticks2 && ticks2.length > 0 ? ticksGenerator(this.props) : ticksGenerator(noTicksProps);
       }
       if (width <= 0 || height <= 0 || !finalTicks || !finalTicks.length) {
@@ -18345,7 +18043,7 @@ var CartesianAxis = /* @__PURE__ */ function(_Component) {
         tickItem = /* @__PURE__ */ React.cloneElement(option, _objectSpread$4(_objectSpread$4({}, props), {}, {
           className: combinedClassName
         }));
-      } else if (isFunction$3(option)) {
+      } else if (isFunction$4(option)) {
         tickItem = option(_objectSpread$4(_objectSpread$4({}, props), {}, {
           className: combinedClassName
         }));
@@ -18500,7 +18198,7 @@ function renderLineItem(option, props) {
   var lineItem;
   if (/* @__PURE__ */ React.isValidElement(option)) {
     lineItem = /* @__PURE__ */ React.cloneElement(option, props);
-  } else if (isFunction$3(option)) {
+  } else if (isFunction$4(option)) {
     lineItem = option(props);
   } else {
     var x1 = props.x1, y1 = props.y1, x2 = props.x2, y2 = props.y2, key = props.key, others = _objectWithoutProperties$2(props, _excluded$2);
@@ -18689,7 +18387,7 @@ function CartesianGrid(props) {
   var verticalCoordinatesGenerator = propsIncludingDefaults.verticalCoordinatesGenerator || defaultVerticalCoordinatesGenerator;
   var horizontalCoordinatesGenerator = propsIncludingDefaults.horizontalCoordinatesGenerator || defaultHorizontalCoordinatesGenerator;
   var horizontalPoints = propsIncludingDefaults.horizontalPoints, verticalPoints = propsIncludingDefaults.verticalPoints;
-  if ((!horizontalPoints || !horizontalPoints.length) && isFunction$3(horizontalCoordinatesGenerator)) {
+  if ((!horizontalPoints || !horizontalPoints.length) && isFunction$4(horizontalCoordinatesGenerator)) {
     var isHorizontalValues = horizontalValues && horizontalValues.length;
     var generatorResult = horizontalCoordinatesGenerator({
       yAxis: yAxis ? _objectSpread$3(_objectSpread$3({}, yAxis), {}, {
@@ -18704,7 +18402,7 @@ function CartesianGrid(props) {
       horizontalPoints = generatorResult;
     }
   }
-  if ((!verticalPoints || !verticalPoints.length) && isFunction$3(verticalCoordinatesGenerator)) {
+  if ((!verticalPoints || !verticalPoints.length) && isFunction$4(verticalCoordinatesGenerator)) {
     var isVerticalValues = verticalValues && verticalValues.length;
     var _generatorResult = verticalCoordinatesGenerator({
       xAxis: xAxis ? _objectSpread$3(_objectSpread$3({}, xAxis), {}, {
@@ -19260,7 +18958,7 @@ var Line = /* @__PURE__ */ function(_PureComponent) {
       var dotItem;
       if (/* @__PURE__ */ React.isValidElement(option)) {
         dotItem = /* @__PURE__ */ React.cloneElement(option, props);
-      } else if (isFunction$3(option)) {
+      } else if (isFunction$4(option)) {
         dotItem = option(props);
       } else {
         var key = props.key, dotProps = _objectWithoutProperties$1(props, _excluded2$1);
@@ -21021,7 +20719,7 @@ var generateCategoricalChart = function generateCategoricalChart2(_ref6) {
           _this.setState(_nextState);
           _this.triggerSyncEvent(_nextState);
           var onMouseEnter = _this.props.onMouseEnter;
-          if (isFunction$3(onMouseEnter)) {
+          if (isFunction$4(onMouseEnter)) {
             onMouseEnter(_nextState, e3);
           }
         }
@@ -21036,7 +20734,7 @@ var generateCategoricalChart = function generateCategoricalChart2(_ref6) {
         _this.setState(nextState);
         _this.triggerSyncEvent(nextState);
         var onMouseMove = _this.props.onMouseMove;
-        if (isFunction$3(onMouseMove)) {
+        if (isFunction$4(onMouseMove)) {
           onMouseMove(nextState, e3);
         }
       });
@@ -21072,14 +20770,14 @@ var generateCategoricalChart = function generateCategoricalChart2(_ref6) {
         _this.setState(nextState);
         _this.triggerSyncEvent(nextState);
         var onMouseLeave = _this.props.onMouseLeave;
-        if (isFunction$3(onMouseLeave)) {
+        if (isFunction$4(onMouseLeave)) {
           onMouseLeave(nextState, e3);
         }
       });
       _defineProperty(_this, "handleOuterEvent", function(e3) {
         var eventName = getReactEventByType(e3);
         var event = get$2(_this.props, "".concat(eventName));
-        if (eventName && isFunction$3(event)) {
+        if (eventName && isFunction$4(event)) {
           var _mouse;
           var mouse;
           if (/.*touch.*/i.test(eventName)) {
@@ -21099,21 +20797,21 @@ var generateCategoricalChart = function generateCategoricalChart2(_ref6) {
           _this.setState(_nextState2);
           _this.triggerSyncEvent(_nextState2);
           var onClick = _this.props.onClick;
-          if (isFunction$3(onClick)) {
+          if (isFunction$4(onClick)) {
             onClick(_nextState2, e3);
           }
         }
       });
       _defineProperty(_this, "handleMouseDown", function(e3) {
         var onMouseDown = _this.props.onMouseDown;
-        if (isFunction$3(onMouseDown)) {
+        if (isFunction$4(onMouseDown)) {
           var _nextState3 = _this.getMouseInfo(e3);
           onMouseDown(_nextState3, e3);
         }
       });
       _defineProperty(_this, "handleMouseUp", function(e3) {
         var onMouseUp = _this.props.onMouseUp;
-        if (isFunction$3(onMouseUp)) {
+        if (isFunction$4(onMouseUp)) {
           var _nextState4 = _this.getMouseInfo(e3);
           onMouseUp(_nextState4, e3);
         }
@@ -21135,14 +20833,14 @@ var generateCategoricalChart = function generateCategoricalChart2(_ref6) {
       });
       _defineProperty(_this, "handleDoubleClick", function(e3) {
         var onDoubleClick = _this.props.onDoubleClick;
-        if (isFunction$3(onDoubleClick)) {
+        if (isFunction$4(onDoubleClick)) {
           var _nextState5 = _this.getMouseInfo(e3);
           onDoubleClick(_nextState5, e3);
         }
       });
       _defineProperty(_this, "handleContextMenu", function(e3) {
         var onContextMenu = _this.props.onContextMenu;
-        if (isFunction$3(onContextMenu)) {
+        if (isFunction$4(onContextMenu)) {
           var _nextState6 = _this.getMouseInfo(e3);
           onContextMenu(_nextState6, e3);
         }
@@ -21986,7 +21684,7 @@ var generateCategoricalChart = function generateCategoricalChart2(_ref6) {
     var dot;
     if (/* @__PURE__ */ reactExports.isValidElement(option)) {
       dot = /* @__PURE__ */ reactExports.cloneElement(option, props);
-    } else if (isFunction$3(option)) {
+    } else if (isFunction$4(option)) {
       dot = option(props);
     } else {
       dot = /* @__PURE__ */ React.createElement(Dot, props);
@@ -22030,6 +21728,811 @@ var BarChart = generateCategoricalChart({
   }],
   formatAxisMap
 });
+const ALL_SYSTEM_IDS$3 = [
+  "soldier-pile",
+  "secant-pile",
+  "sheet-pile",
+  "tangent-pile",
+  "micropile",
+  "diaphragm-wall"
+];
+const SYSTEM_NAME$3 = {
+  "soldier-pile": "Soldier Pile",
+  "secant-pile": "Secant Pile",
+  "sheet-pile": "Sheet Pile",
+  "tangent-pile": "Tangent Pile",
+  micropile: "Micropile",
+  "diaphragm-wall": "Diaphragm Wall"
+};
+const SYSTEM_COLOR$3 = {
+  "soldier-pile": "hsl(195 60% 52%)",
+  "secant-pile": "hsl(48 65% 52%)",
+  "sheet-pile": "hsl(280 45% 58%)",
+  "tangent-pile": "hsl(130 40% 50%)",
+  micropile: "hsl(310 50% 58%)",
+  "diaphragm-wall": "hsl(22 65% 58%)"
+};
+const CHART_TOOLTIP_STYLE$1 = {
+  backgroundColor: "hsl(var(--card) / 1)",
+  border: "1px solid hsl(var(--border))",
+  borderRadius: "6px",
+  fontSize: "11px",
+  fontFamily: "var(--font-mono, monospace)",
+  color: "hsl(var(--foreground))"
+};
+function buildChartData(inputKey, outputKey) {
+  var _a, _b;
+  const dataset = (_a = GRAPH_DATA[inputKey]) == null ? void 0 : _a[outputKey];
+  if (!dataset) return [];
+  const xValues = ((_b = dataset[ALL_SYSTEM_IDS$3[0]]) == null ? void 0 : _b.map((p2) => p2.x)) ?? [];
+  return xValues.map((x2, i) => {
+    var _a2, _b2;
+    const row = { x: x2 };
+    for (const sysId of ALL_SYSTEM_IDS$3) {
+      row[sysId] = ((_b2 = (_a2 = dataset[sysId]) == null ? void 0 : _a2[i]) == null ? void 0 : _b2.y) ?? 0;
+    }
+    return row;
+  });
+}
+function GraphBuilder() {
+  var _a, _b, _c, _d;
+  const [inputKey, setInputKey] = reactExports.useState("excavation-depth");
+  const [outputKey, setOutputKey] = reactExports.useState(
+    "lateral-displacement"
+  );
+  const chartRef = reactExports.useRef(null);
+  const chartData = buildChartData(inputKey, outputKey);
+  const xLabel = ((_a = INPUT_PARAM_OPTIONS.find((o) => o.id === inputKey)) == null ? void 0 : _a.axisLabel) ?? inputKey;
+  const yLabel = ((_b = OUTPUT_PARAM_OPTIONS.find((o) => o.id === outputKey)) == null ? void 0 : _b.axisLabel) ?? outputKey;
+  const handleExport = reactExports.useCallback(() => {
+    var _a2;
+    const svgEl = (_a2 = chartRef.current) == null ? void 0 : _a2.querySelector("svg");
+    if (!svgEl) return;
+    const serialized = new XMLSerializer().serializeToString(svgEl);
+    const blob = new Blob([serialized], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(blob);
+    const a2 = document.createElement("a");
+    a2.href = url;
+    a2.download = `excavation-${inputKey}-vs-${outputKey}.svg`;
+    a2.click();
+    URL.revokeObjectURL(url);
+  }, [inputKey, outputKey]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { "data-ocid": "comparison.graph_builder", className: "space-y-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-4 items-end", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1.5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "label",
+          {
+            htmlFor: "graph-x-axis",
+            className: "font-mono text-[10px] uppercase tracking-widest text-muted-foreground",
+            children: "X-Axis: Input Parameter"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "select",
+          {
+            id: "graph-x-axis",
+            "data-ocid": "comparison.graph_builder.x_axis_select",
+            value: inputKey,
+            onChange: (e3) => setInputKey(e3.target.value),
+            className: "bg-card border border-border/60 rounded-md px-3 py-1.5 font-mono text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary/50 min-w-[260px] cursor-pointer",
+            children: INPUT_PARAM_OPTIONS.map((o) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: o.id, children: o.label }, o.id))
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1.5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "label",
+          {
+            htmlFor: "graph-y-axis",
+            className: "font-mono text-[10px] uppercase tracking-widest text-muted-foreground",
+            children: "Y-Axis: Output Parameter"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "select",
+          {
+            id: "graph-y-axis",
+            "data-ocid": "comparison.graph_builder.y_axis_select",
+            value: outputKey,
+            onChange: (e3) => setOutputKey(e3.target.value),
+            className: "bg-card border border-border/60 rounded-md px-3 py-1.5 font-mono text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary/50 min-w-[260px] cursor-pointer",
+            children: OUTPUT_PARAM_OPTIONS.map((o) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: o.id, children: o.label }, o.id))
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          "data-ocid": "comparison.graph_builder.export_button",
+          onClick: handleExport,
+          className: "flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/50 bg-card hover:bg-primary/10 hover:border-primary/40 transition-colors font-mono text-[11px] text-foreground self-end",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { className: "w-3.5 h-3.5" }),
+            "Export Chart"
+          ]
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        ref: chartRef,
+        className: "rounded-md border border-border/40 bg-card p-4",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-mono text-[10px] uppercase tracking-widest text-primary mb-1", children: [
+            ((_c = INPUT_PARAM_OPTIONS.find((o) => o.id === inputKey)) == null ? void 0 : _c.label) ?? inputKey,
+            " vs ",
+            ((_d = OUTPUT_PARAM_OPTIONS.find((o) => o.id === outputKey)) == null ? void 0 : _d.label) ?? outputKey
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] text-muted-foreground mb-4", children: "All 6 methods — synthetic representative data points" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ResponsiveContainer, { width: "100%", height: 320, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            LineChart,
+            {
+              data: chartData,
+              margin: { top: 4, right: 16, bottom: 24, left: 16 },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  CartesianGrid,
+                  {
+                    strokeDasharray: "3 3",
+                    stroke: "hsl(var(--border) / 0.5)"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  XAxis,
+                  {
+                    dataKey: "x",
+                    type: "number",
+                    domain: ["dataMin", "dataMax"],
+                    tick: {
+                      fill: "hsl(var(--muted-foreground))",
+                      fontSize: 10,
+                      fontFamily: "var(--font-mono)"
+                    },
+                    axisLine: false,
+                    tickLine: false,
+                    label: {
+                      value: xLabel,
+                      position: "insideBottom",
+                      offset: -12,
+                      fill: "hsl(var(--muted-foreground))",
+                      fontSize: 11,
+                      fontFamily: "var(--font-mono)"
+                    }
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  YAxis,
+                  {
+                    tick: {
+                      fill: "hsl(var(--muted-foreground))",
+                      fontSize: 10,
+                      fontFamily: "var(--font-mono)"
+                    },
+                    axisLine: false,
+                    tickLine: false,
+                    label: {
+                      value: yLabel,
+                      angle: -90,
+                      position: "insideLeft",
+                      offset: 8,
+                      fill: "hsl(var(--muted-foreground))",
+                      fontSize: 11,
+                      fontFamily: "var(--font-mono)"
+                    }
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Tooltip,
+                  {
+                    contentStyle: CHART_TOOLTIP_STYLE$1,
+                    formatter: (v2, name) => [
+                      `${v2} ${yLabel}`,
+                      SYSTEM_NAME$3[name] ?? name
+                    ],
+                    labelFormatter: (label) => `${xLabel}: ${label}`
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Legend,
+                  {
+                    formatter: (value) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "span",
+                      {
+                        style: {
+                          fontSize: 10,
+                          fontFamily: "var(--font-mono)",
+                          color: SYSTEM_COLOR$3[value] ?? "hsl(var(--foreground))"
+                        },
+                        children: SYSTEM_NAME$3[value] ?? value
+                      }
+                    )
+                  }
+                ),
+                ALL_SYSTEM_IDS$3.map((sysId) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Line,
+                  {
+                    type: "monotone",
+                    dataKey: sysId,
+                    stroke: SYSTEM_COLOR$3[sysId],
+                    strokeWidth: 2,
+                    dot: { r: 3, fill: SYSTEM_COLOR$3[sysId] },
+                    activeDot: { r: 5 },
+                    connectNulls: false
+                  },
+                  sysId
+                ))
+              ]
+            }
+          ) })
+        ]
+      }
+    )
+  ] });
+}
+const ALL_SYSTEM_IDS$2 = [
+  "soldier-pile",
+  "secant-pile",
+  "sheet-pile",
+  "tangent-pile",
+  "micropile",
+  "diaphragm-wall"
+];
+const SYSTEM_NAME$2 = {
+  "soldier-pile": "Soldier Pile",
+  "secant-pile": "Secant Pile",
+  "sheet-pile": "Sheet Pile",
+  "tangent-pile": "Tangent Pile",
+  micropile: "Micropile",
+  "diaphragm-wall": "Diaphragm Wall"
+};
+const SYSTEM_COLOR$2 = {
+  "soldier-pile": "hsl(195 60% 52%)",
+  "secant-pile": "hsl(48 65% 52%)",
+  "sheet-pile": "hsl(280 45% 58%)",
+  "tangent-pile": "hsl(130 40% 50%)",
+  micropile: "hsl(310 50% 58%)",
+  "diaphragm-wall": "hsl(22 65% 58%)"
+};
+const SENSITIVITY_BADGE = {
+  High: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+  Moderate: "bg-yellow-500/15 text-yellow-400 border-yellow-500/30",
+  Low: "bg-orange-500/15 text-orange-400 border-orange-500/30",
+  "N/A": "bg-muted/40 text-muted-foreground border-border/30"
+};
+function InputEffectsTable() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-ocid": "comparison.input_effects_table",
+      className: "w-full overflow-x-auto rounded-md border border-border/60",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full text-sm border-collapse min-w-[900px]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("caption", { className: "text-[10px] text-muted-foreground text-left px-3 py-1.5", children: "Qualitative sensitivity of each input parameter on wall performance per method. FEM Importance and Model Complexity refer to numerical simulation context." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { className: "sticky top-0 z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "bg-primary/15 border-b border-primary/30", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-left font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap", children: "Parameter" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap", children: "Symbol" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap", children: "Unit" }),
+          ALL_SYSTEM_IDS$2.map((id) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "th",
+            {
+              className: "px-3 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "span",
+                {
+                  className: "inline-flex items-center gap-1",
+                  style: { color: SYSTEM_COLOR$2[id] },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "span",
+                      {
+                        className: "w-1.5 h-1.5 rounded-full flex-shrink-0",
+                        style: { background: SYSTEM_COLOR$2[id] }
+                      }
+                    ),
+                    SYSTEM_NAME$2[id]
+                  ]
+                }
+              )
+            },
+            id
+          )),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap", children: "FEM Importance" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap", children: "Model Complexity" })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: INPUT_EFFECT_ROWS.map((row, rowIdx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "tr",
+          {
+            "data-ocid": `comparison.input_effects_table.row.${rowIdx + 1}`,
+            className: `border-b border-border/30 hover:bg-primary/5 transition-colors ${rowIdx % 2 === 0 ? "bg-card" : "bg-background"}`,
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2 whitespace-nowrap", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs font-medium text-foreground", children: row.param }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[11px] text-muted-foreground", children: row.symbol }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2 text-center whitespace-nowrap", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] text-muted-foreground", children: row.unit }) }),
+              ALL_SYSTEM_IDS$2.map((id) => {
+                const val = String(row.values[id] ?? "N/A");
+                const cls = SENSITIVITY_BADGE[val] ?? SENSITIVITY_BADGE["N/A"];
+                return /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Badge,
+                  {
+                    variant: "outline",
+                    className: `font-mono text-[10px] uppercase tracking-wider ${cls}`,
+                    children: val
+                  }
+                ) }, id);
+              }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Badge,
+                {
+                  variant: "outline",
+                  className: `font-mono text-[10px] uppercase tracking-wider ${SENSITIVITY_BADGE[row.femImportance] ?? SENSITIVITY_BADGE["N/A"]}`,
+                  children: row.femImportance
+                }
+              ) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Badge,
+                {
+                  variant: "outline",
+                  className: `font-mono text-[10px] uppercase tracking-wider ${SENSITIVITY_BADGE[row.modelComplexity] ?? SENSITIVITY_BADGE["N/A"]}`,
+                  children: row.modelComplexity
+                }
+              ) })
+            ]
+          },
+          row.param
+        )) })
+      ] })
+    }
+  );
+}
+const ALL_SYSTEM_IDS$1 = [
+  "soldier-pile",
+  "secant-pile",
+  "sheet-pile",
+  "tangent-pile",
+  "micropile",
+  "diaphragm-wall"
+];
+const SYSTEM_NAME$1 = {
+  "soldier-pile": "Soldier Pile",
+  "secant-pile": "Secant Pile",
+  "sheet-pile": "Sheet Pile",
+  "tangent-pile": "Tangent Pile",
+  micropile: "Micropile",
+  "diaphragm-wall": "Diaphragm Wall"
+};
+const SYSTEM_COLOR$1 = {
+  "soldier-pile": "hsl(195 60% 52%)",
+  "secant-pile": "hsl(48 65% 52%)",
+  "sheet-pile": "hsl(280 45% 58%)",
+  "tangent-pile": "hsl(130 40% 50%)",
+  micropile: "hsl(310 50% 58%)",
+  "diaphragm-wall": "hsl(22 65% 58%)"
+};
+function SortIcon$1({ active, dir }) {
+  if (!active) return /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronsUpDown, { className: "w-3 h-3 text-primary/50" });
+  if (dir === "asc") return /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" });
+}
+function OutputRangesTable() {
+  const [sortCol, setSortCol] = reactExports.useState(null);
+  const [sortDir, setSortDir] = reactExports.useState(null);
+  function handleSort(col) {
+    if (sortCol !== col) {
+      setSortCol(col);
+      setSortDir("asc");
+    } else if (sortDir === "asc") {
+      setSortDir("desc");
+    } else {
+      setSortCol(null);
+      setSortDir(null);
+    }
+  }
+  const sorted = sortCol && sortDir ? [...OUTPUT_RANGE_ROWS].sort((a2, b2) => {
+    const av = a2.sortNumeric[sortCol] ?? 0;
+    const bv = b2.sortNumeric[sortCol] ?? 0;
+    return sortDir === "asc" ? av - bv : bv - av;
+  }) : OUTPUT_RANGE_ROWS;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-ocid": "comparison.output_ranges_table",
+      className: "w-full overflow-x-auto rounded-md border border-border/60",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full text-sm border-collapse min-w-[1000px]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("caption", { className: "text-[10px] text-muted-foreground text-left px-3 py-1.5", children: "Typical output parameter ranges from published literature and FEM analyses. Click column headers to sort by mid-point. N/A = not applicable." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { className: "sticky top-0 z-20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "bg-card border-b border-primary/30", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-3 text-left font-mono text-[10px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap w-56 border-r border-border/30", children: "Output Parameter" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-3 text-left font-mono text-[10px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap w-40 border-r border-border/30 bg-primary/10", children: "Indicator" }),
+          ALL_SYSTEM_IDS$1.map((id) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "th",
+            {
+              className: "px-2 py-3 text-center font-mono text-[10px] font-semibold uppercase tracking-wider whitespace-nowrap cursor-pointer select-none hover:bg-primary/10 transition-colors border-r border-border/20",
+              style: { color: SYSTEM_COLOR$1[id] },
+              onClick: () => handleSort(id),
+              onKeyDown: (e3) => e3.key === "Enter" && handleSort(id),
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex flex-col items-center gap-0.5", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "span",
+                  {
+                    className: "w-1.5 h-1.5 rounded-full",
+                    style: { background: SYSTEM_COLOR$1[id] }
+                  }
+                ),
+                SYSTEM_NAME$1[id],
+                /* @__PURE__ */ jsxRuntimeExports.jsx(SortIcon$1, { active: sortCol === id, dir: sortDir })
+              ] })
+            },
+            id
+          )),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-2 py-3 text-center font-mono text-[10px] font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap w-14", children: "Unit" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-3 text-left font-mono text-[10px] font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap min-w-[160px]", children: "Notes" })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: sorted.map((row, rowIdx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "tr",
+          {
+            "data-ocid": `comparison.output_ranges_table.row.${rowIdx + 1}`,
+            className: `border-b border-border/20 hover:bg-primary/5 transition-colors ${rowIdx % 2 === 0 ? "bg-card" : "bg-background"}`,
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5 border-r border-border/30", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs font-semibold text-foreground", children: row.param }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5 border-r border-border/30 bg-primary/5", children: row.indicator && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[9px] text-primary/60 uppercase tracking-wide leading-tight block", children: row.indicator }) }),
+              ALL_SYSTEM_IDS$1.map((id) => {
+                const val = row.values[id];
+                const isNA = val === "N/A";
+                return /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "td",
+                  {
+                    className: `px-2 py-2.5 text-center border-r border-border/15 ${isNA ? "opacity-40" : ""}`,
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "span",
+                      {
+                        className: "inline-block font-mono text-xs px-1.5 py-0.5 rounded-sm",
+                        style: {
+                          background: isNA ? void 0 : `${SYSTEM_COLOR$1[id]}18`,
+                          borderLeft: isNA ? void 0 : `2px solid ${SYSTEM_COLOR$1[id]}50`
+                        },
+                        children: val
+                      }
+                    )
+                  },
+                  id
+                );
+              }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-2 py-2.5 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] text-muted-foreground", children: row.unit }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] text-muted-foreground/80 leading-relaxed", children: row.notes }) })
+            ]
+          },
+          row.param
+        )) })
+      ] })
+    }
+  );
+}
+function usePrevious(value) {
+  const ref = reactExports.useRef({ value, previous: value });
+  return reactExports.useMemo(() => {
+    if (ref.current.value !== value) {
+      ref.current.previous = ref.current.value;
+      ref.current.value = value;
+    }
+    return ref.current.previous;
+  }, [value]);
+}
+function useSize(element) {
+  const [size, setSize] = reactExports.useState(void 0);
+  useLayoutEffect2(() => {
+    if (element) {
+      setSize({ width: element.offsetWidth, height: element.offsetHeight });
+      const resizeObserver = new ResizeObserver((entries) => {
+        if (!Array.isArray(entries)) {
+          return;
+        }
+        if (!entries.length) {
+          return;
+        }
+        const entry = entries[0];
+        let width;
+        let height;
+        if ("borderBoxSize" in entry) {
+          const borderSizeEntry = entry["borderBoxSize"];
+          const borderSize = Array.isArray(borderSizeEntry) ? borderSizeEntry[0] : borderSizeEntry;
+          width = borderSize["inlineSize"];
+          height = borderSize["blockSize"];
+        } else {
+          width = element.offsetWidth;
+          height = element.offsetHeight;
+        }
+        setSize({ width, height });
+      });
+      resizeObserver.observe(element, { box: "border-box" });
+      return () => resizeObserver.unobserve(element);
+    } else {
+      setSize(void 0);
+    }
+  }, [element]);
+  return size;
+}
+var CHECKBOX_NAME = "Checkbox";
+var [createCheckboxContext] = createContextScope(CHECKBOX_NAME);
+var [CheckboxProviderImpl, useCheckboxContext] = createCheckboxContext(CHECKBOX_NAME);
+function CheckboxProvider(props) {
+  const {
+    __scopeCheckbox,
+    checked: checkedProp,
+    children,
+    defaultChecked,
+    disabled,
+    form,
+    name,
+    onCheckedChange,
+    required,
+    value = "on",
+    // @ts-expect-error
+    internal_do_not_use_render
+  } = props;
+  const [checked, setChecked] = useControllableState({
+    prop: checkedProp,
+    defaultProp: defaultChecked ?? false,
+    onChange: onCheckedChange,
+    caller: CHECKBOX_NAME
+  });
+  const [control, setControl] = reactExports.useState(null);
+  const [bubbleInput, setBubbleInput] = reactExports.useState(null);
+  const hasConsumerStoppedPropagationRef = reactExports.useRef(false);
+  const isFormControl = control ? !!form || !!control.closest("form") : (
+    // We set this to true by default so that events bubble to forms without JS (SSR)
+    true
+  );
+  const context = {
+    checked,
+    disabled,
+    setChecked,
+    control,
+    setControl,
+    name,
+    form,
+    value,
+    hasConsumerStoppedPropagationRef,
+    required,
+    defaultChecked: isIndeterminate(defaultChecked) ? false : defaultChecked,
+    isFormControl,
+    bubbleInput,
+    setBubbleInput
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    CheckboxProviderImpl,
+    {
+      scope: __scopeCheckbox,
+      ...context,
+      children: isFunction(internal_do_not_use_render) ? internal_do_not_use_render(context) : children
+    }
+  );
+}
+var TRIGGER_NAME = "CheckboxTrigger";
+var CheckboxTrigger = reactExports.forwardRef(
+  ({ __scopeCheckbox, onKeyDown, onClick, ...checkboxProps }, forwardedRef) => {
+    const {
+      control,
+      value,
+      disabled,
+      checked,
+      required,
+      setControl,
+      setChecked,
+      hasConsumerStoppedPropagationRef,
+      isFormControl,
+      bubbleInput
+    } = useCheckboxContext(TRIGGER_NAME, __scopeCheckbox);
+    const composedRefs = useComposedRefs(forwardedRef, setControl);
+    const initialCheckedStateRef = reactExports.useRef(checked);
+    reactExports.useEffect(() => {
+      const form = control == null ? void 0 : control.form;
+      if (form) {
+        const reset = () => setChecked(initialCheckedStateRef.current);
+        form.addEventListener("reset", reset);
+        return () => form.removeEventListener("reset", reset);
+      }
+    }, [control, setChecked]);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.button,
+      {
+        type: "button",
+        role: "checkbox",
+        "aria-checked": isIndeterminate(checked) ? "mixed" : checked,
+        "aria-required": required,
+        "data-state": getState(checked),
+        "data-disabled": disabled ? "" : void 0,
+        disabled,
+        value,
+        ...checkboxProps,
+        ref: composedRefs,
+        onKeyDown: composeEventHandlers(onKeyDown, (event) => {
+          if (event.key === "Enter") event.preventDefault();
+        }),
+        onClick: composeEventHandlers(onClick, (event) => {
+          setChecked((prevChecked) => isIndeterminate(prevChecked) ? true : !prevChecked);
+          if (bubbleInput && isFormControl) {
+            hasConsumerStoppedPropagationRef.current = event.isPropagationStopped();
+            if (!hasConsumerStoppedPropagationRef.current) event.stopPropagation();
+          }
+        })
+      }
+    );
+  }
+);
+CheckboxTrigger.displayName = TRIGGER_NAME;
+var Checkbox$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeCheckbox,
+      name,
+      checked,
+      defaultChecked,
+      required,
+      disabled,
+      value,
+      onCheckedChange,
+      form,
+      ...checkboxProps
+    } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CheckboxProvider,
+      {
+        __scopeCheckbox,
+        checked,
+        defaultChecked,
+        disabled,
+        required,
+        onCheckedChange,
+        name,
+        form,
+        value,
+        internal_do_not_use_render: ({ isFormControl }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            CheckboxTrigger,
+            {
+              ...checkboxProps,
+              ref: forwardedRef,
+              __scopeCheckbox
+            }
+          ),
+          isFormControl && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            CheckboxBubbleInput,
+            {
+              __scopeCheckbox
+            }
+          )
+        ] })
+      }
+    );
+  }
+);
+Checkbox$1.displayName = CHECKBOX_NAME;
+var INDICATOR_NAME = "CheckboxIndicator";
+var CheckboxIndicator = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeCheckbox, forceMount, ...indicatorProps } = props;
+    const context = useCheckboxContext(INDICATOR_NAME, __scopeCheckbox);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Presence,
+      {
+        present: forceMount || isIndeterminate(context.checked) || context.checked === true,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.span,
+          {
+            "data-state": getState(context.checked),
+            "data-disabled": context.disabled ? "" : void 0,
+            ...indicatorProps,
+            ref: forwardedRef,
+            style: { pointerEvents: "none", ...props.style }
+          }
+        )
+      }
+    );
+  }
+);
+CheckboxIndicator.displayName = INDICATOR_NAME;
+var BUBBLE_INPUT_NAME = "CheckboxBubbleInput";
+var CheckboxBubbleInput = reactExports.forwardRef(
+  ({ __scopeCheckbox, ...props }, forwardedRef) => {
+    const {
+      control,
+      hasConsumerStoppedPropagationRef,
+      checked,
+      defaultChecked,
+      required,
+      disabled,
+      name,
+      value,
+      form,
+      bubbleInput,
+      setBubbleInput
+    } = useCheckboxContext(BUBBLE_INPUT_NAME, __scopeCheckbox);
+    const composedRefs = useComposedRefs(forwardedRef, setBubbleInput);
+    const prevChecked = usePrevious(checked);
+    const controlSize = useSize(control);
+    reactExports.useEffect(() => {
+      const input = bubbleInput;
+      if (!input) return;
+      const inputProto = window.HTMLInputElement.prototype;
+      const descriptor = Object.getOwnPropertyDescriptor(
+        inputProto,
+        "checked"
+      );
+      const setChecked = descriptor.set;
+      const bubbles = !hasConsumerStoppedPropagationRef.current;
+      if (prevChecked !== checked && setChecked) {
+        const event = new Event("click", { bubbles });
+        input.indeterminate = isIndeterminate(checked);
+        setChecked.call(input, isIndeterminate(checked) ? false : checked);
+        input.dispatchEvent(event);
+      }
+    }, [bubbleInput, prevChecked, checked, hasConsumerStoppedPropagationRef]);
+    const defaultCheckedRef = reactExports.useRef(isIndeterminate(checked) ? false : checked);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.input,
+      {
+        type: "checkbox",
+        "aria-hidden": true,
+        defaultChecked: defaultChecked ?? defaultCheckedRef.current,
+        required,
+        disabled,
+        name,
+        value,
+        form,
+        ...props,
+        tabIndex: -1,
+        ref: composedRefs,
+        style: {
+          ...props.style,
+          ...controlSize,
+          position: "absolute",
+          pointerEvents: "none",
+          opacity: 0,
+          margin: 0,
+          // We transform because the input is absolutely positioned but we have
+          // rendered it **after** the button. This pulls it back to sit on top
+          // of the button.
+          transform: "translateX(-100%)"
+        }
+      }
+    );
+  }
+);
+CheckboxBubbleInput.displayName = BUBBLE_INPUT_NAME;
+function isFunction(value) {
+  return typeof value === "function";
+}
+function isIndeterminate(checked) {
+  return checked === "indeterminate";
+}
+function getState(checked) {
+  return isIndeterminate(checked) ? "indeterminate" : checked ? "checked" : "unchecked";
+}
+function Checkbox({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Checkbox$1,
+    {
+      "data-slot": "checkbox",
+      className: cn(
+        "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      ),
+      ...props,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        CheckboxIndicator,
+        {
+          "data-slot": "checkbox-indicator",
+          className: "flex items-center justify-center text-current transition-none",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "size-3.5" })
+        }
+      )
+    }
+  );
+}
 const ALL_SYSTEM_IDS = [
   "soldier-pile",
   "secant-pile",
@@ -22054,15 +22557,14 @@ const SYSTEM_COLOR = {
   micropile: "hsl(310 50% 58%)",
   "diaphragm-wall": "hsl(22 65% 58%)"
 };
-const ALL_PARAMS = [
-  { id: "costRange", label: "Cost Range" },
-  { id: "maxHeight", label: "Max Height" },
-  { id: "installationTime", label: "Installation Time" },
-  { id: "deflection", label: "Deflection" },
-  { id: "waterControl", label: "Water Control" },
-  { id: "noisyVibration", label: "Noise / Vibration" },
-  { id: "mobilizationTime", label: "Mobilization Time" }
-];
+const RATING_CLASS = {
+  best: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+  good: "bg-emerald-500/8 text-emerald-400 border-emerald-500/20",
+  moderate: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+  poor: "bg-red-500/10 text-red-400 border-red-500/20",
+  worst: "bg-red-500/20 text-red-300 border-red-500/35",
+  neutral: "bg-muted/30 text-muted-foreground border-border/30"
+};
 const WATER_SCORE = {
   Excellent: 4,
   Good: 3,
@@ -22079,13 +22581,6 @@ function parseCostMax(s2) {
   if (!nums || nums.length < 2) return parseCostMin(s2);
   return Number.parseInt(nums[nums.length - 1].replace(",", ""), 10);
 }
-const WATER_CONTROL_COLOR = {
-  Poor: "text-destructive border-destructive/30 bg-destructive/10",
-  Moderate: "text-accent border-accent/30 bg-accent/10",
-  Good: "text-primary border-primary/30 bg-primary/10",
-  Excellent: "text-primary border-primary/40 bg-primary/20",
-  "Poor–Moderate": "text-accent border-accent/30 bg-accent/10"
-};
 const INSIGHTS = [
   {
     title: "Deepest Capable",
@@ -22113,20 +22608,12 @@ const INSIGHTS = [
     note: "75–300 mm diameter, ≥2 m headroom only. Ideal for underpinning & karst sites."
   }
 ];
-function exportCSV(metrics, selectedSystems, selectedParams) {
-  const sysMetrics = metrics.filter(
-    (m2) => selectedSystems.includes(m2.systemId)
+function exportCSV(metrics, selectedSystems, selectedRows) {
+  const sysIds = selectedSystems;
+  const headers = ["Feature", ...sysIds.map((s2) => SYSTEM_NAME[s2] ?? s2)];
+  const rows = METRIC_ROWS.filter((r) => selectedRows.includes(r.id)).map(
+    (mrow) => [mrow.label, ...sysIds.map((s2) => mrow.values[s2] ?? "")]
   );
-  const paramLabels = {};
-  for (const p2 of ALL_PARAMS) paramLabels[p2.id] = p2.label;
-  const headers = ["System", ...selectedParams.map((p2) => paramLabels[p2] ?? p2)];
-  const rows = sysMetrics.map((m2) => [
-    SYSTEM_NAME[m2.systemId] ?? m2.systemId,
-    ...selectedParams.map((p2) => {
-      const v2 = m2[p2];
-      return String(v2 ?? "");
-    })
-  ]);
   const csv = [headers, ...rows].map((r) => r.map((c2) => `"${c2}"`).join(",")).join("\n");
   const blob = new Blob([csv], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
@@ -22154,13 +22641,13 @@ function useSortState() {
 }
 function FilterPanel({
   selectedSystems,
-  selectedParams,
+  selectedRows,
   onToggleSystem,
-  onToggleParam,
+  onToggleRow,
   onSelectAllSystems,
   onClearSystems,
-  onSelectAllParams,
-  onClearParams
+  onSelectAllRows,
+  onClearRows
 }) {
   const [mobileOpen, setMobileOpen] = reactExports.useState(false);
   const inner = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-5", children: [
@@ -22226,15 +22713,15 @@ function FilterPanel({
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, { className: "bg-border/40" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] uppercase tracking-widest text-muted-foreground", children: "Parameters" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] uppercase tracking-widest text-muted-foreground", children: "Features" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               type: "button",
-              "data-ocid": "comparison.filter.select_all_params",
+              "data-ocid": "comparison.filter.select_all_rows",
               className: "font-mono text-[10px] text-primary hover:underline",
-              onClick: onSelectAllParams,
+              onClick: onSelectAllRows,
               children: "All"
             }
           ),
@@ -22243,34 +22730,34 @@ function FilterPanel({
             "button",
             {
               type: "button",
-              "data-ocid": "comparison.filter.clear_params",
+              "data-ocid": "comparison.filter.clear_rows",
               className: "font-mono text-[10px] text-muted-foreground hover:text-foreground",
-              onClick: onClearParams,
+              onClick: onClearRows,
               children: "Clear"
             }
           )
         ] })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-1.5", children: ALL_PARAMS.map((p2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-1.5", children: METRIC_ROWS.map((r) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "label",
         {
-          htmlFor: `param-cb-${p2.id}`,
+          htmlFor: `row-cb-${r.id}`,
           className: "flex items-center gap-2.5 cursor-pointer group",
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               Checkbox,
               {
-                id: `param-cb-${p2.id}`,
-                "data-ocid": `comparison.filter.param.${p2.id}`,
-                checked: selectedParams.includes(p2.id),
-                onCheckedChange: () => onToggleParam(p2.id),
+                id: `row-cb-${r.id}`,
+                "data-ocid": `comparison.filter.row.${r.id}`,
+                checked: selectedRows.includes(r.id),
+                onCheckedChange: () => onToggleRow(r.id),
                 className: "border-border/60 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-foreground group-hover:text-primary transition-colors", children: p2.label })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-foreground group-hover:text-primary transition-colors", children: r.label })
           ]
         },
-        p2.id
+        r.id
       )) })
     ] })
   ] });
@@ -22298,8 +22785,8 @@ function FilterPanel({
       "aside",
       {
         "data-ocid": "comparison.filter.sidebar",
-        className: "hidden lg:block w-[260px] flex-shrink-0 sticky top-0 self-start",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border border-border/40 rounded-md bg-card p-4", children: [
+        className: "hidden lg:block w-[220px] flex-shrink-0 sticky top-0 self-start",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border border-border/40 rounded-md bg-card p-4 max-h-[calc(100vh-6rem)] overflow-y-auto", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-4", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { className: "w-3.5 h-3.5 text-primary" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] uppercase tracking-widest text-primary", children: "Filters" })
@@ -22310,122 +22797,120 @@ function FilterPanel({
     )
   ] });
 }
-function ComparisonTable({
-  metrics,
+function MetricsTable({
   selectedSystems,
-  selectedParams
+  selectedRows
 }) {
   const { sortKey, sortDir, handleSort } = useSortState();
-  const filteredMetrics = reactExports.useMemo(() => {
-    const base = metrics.filter((m2) => selectedSystems.includes(m2.systemId));
-    if (!sortKey || !sortDir) return base;
-    return [...base].sort((a2, b2) => {
-      const av = a2[sortKey];
-      const bv = b2[sortKey];
-      if (typeof av === "number" && typeof bv === "number") {
-        return sortDir === "asc" ? av - bv : bv - av;
-      }
-      return sortDir === "asc" ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+  const filteredSystems = reactExports.useMemo(() => {
+    if (!sortKey || !sortDir) return selectedSystems;
+    return [...selectedSystems].sort((a2, b2) => {
+      const rowData = METRIC_ROWS.find((r) => r.id === sortKey);
+      if (!rowData) return 0;
+      const av = rowData.values[a2] ?? "";
+      const bv = rowData.values[b2] ?? "";
+      return sortDir === "asc" ? av.localeCompare(bv) : bv.localeCompare(av);
     });
-  }, [metrics, selectedSystems, sortKey, sortDir]);
-  const visibleParams = ALL_PARAMS.filter((p2) => selectedParams.includes(p2.id));
+  }, [selectedSystems, sortKey, sortDir]);
+  const visibleRows = METRIC_ROWS.filter((r) => selectedRows.includes(r.id));
   if (selectedSystems.length === 0) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
         "data-ocid": "comparison.table.empty_state",
         className: "rounded-md border border-border/40 bg-card py-12 flex items-center justify-center",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs text-muted-foreground", children: "Select at least one wall system to compare." })
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs text-muted-foreground", children: "Select at least one wall system." })
       }
     );
   }
-  if (selectedParams.length === 0) {
+  if (visibleRows.length === 0) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
         "data-ocid": "comparison.table.empty_state",
         className: "rounded-md border border-border/40 bg-card py-12 flex items-center justify-center",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs text-muted-foreground", children: "Select at least one parameter to display." })
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-xs text-muted-foreground", children: "Select at least one feature row." })
       }
     );
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       "data-ocid": "comparison.table",
       className: "w-full overflow-x-auto rounded-md border border-border/60",
-      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full text-sm border-collapse", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("caption", { className: "text-[10px] text-muted-foreground text-left px-3 py-1.5", children: "Metrics from published literature and contractor guidelines. Click any column header to sort." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "bg-primary/15 border-b border-primary/30", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "th",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full text-sm border-collapse", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("caption", { className: "text-[10px] text-muted-foreground text-left px-3 py-1.5", children: "Features as rows, wall systems as columns. Click any system header to sort. Color: green = best, red = worst." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "bg-primary/15 border-b border-primary/30", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-left font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap w-48 border-r border-border/30", children: "Feature / Criterion" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-3 py-2.5 text-left font-mono text-[11px] text-primary/60 whitespace-nowrap w-48 border-r border-border/20", children: "Description" }),
+            filteredSystems.map((sysId) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "th",
+              {
+                className: "px-3 py-2.5 text-center font-mono text-[11px] font-semibold uppercase tracking-widest whitespace-nowrap select-none cursor-pointer hover:bg-primary/20 transition-colors",
+                style: { color: SYSTEM_COLOR[sysId] },
+                onClick: () => handleSort(sysId),
+                onKeyDown: (e3) => e3.key === "Enter" && handleSort(sysId),
+                children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex flex-col items-center gap-0.5", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "span",
+                    {
+                      className: "w-1.5 h-1.5 rounded-full",
+                      style: { background: SYSTEM_COLOR[sysId] }
+                    }
+                  ),
+                  SYSTEM_NAME[sysId],
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(SortIcon, { k: sysId, sortKey, sortDir })
+                ] })
+              },
+              sysId
+            ))
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: visibleRows.map((row, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "tr",
             {
-              className: "px-3 py-2.5 text-left font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap select-none cursor-pointer hover:bg-primary/20 transition-colors",
-              onClick: () => handleSort("systemId"),
-              onKeyDown: (e3) => e3.key === "Enter" && handleSort("systemId"),
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1", children: [
-                "System",
-                /* @__PURE__ */ jsxRuntimeExports.jsx(SortIcon, { k: "systemId", sortKey, sortDir })
-              ] })
-            }
-          ),
-          visibleParams.map((p2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "th",
-            {
-              className: "px-3 py-2.5 text-left font-mono text-[11px] font-semibold uppercase tracking-widest text-primary whitespace-nowrap select-none cursor-pointer hover:bg-primary/20 transition-colors",
-              onClick: () => handleSort(p2.id),
-              onKeyDown: (e3) => e3.key === "Enter" && handleSort(p2.id),
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center gap-1", children: [
-                p2.label,
-                /* @__PURE__ */ jsxRuntimeExports.jsx(SortIcon, { k: p2.id, sortKey, sortDir })
-              ] })
-            },
-            p2.id
-          ))
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: filteredMetrics.map((m2, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "tr",
-          {
-            "data-ocid": `comparison.table.row.${i + 1}`,
-            className: `border-b border-border/30 transition-colors duration-100 hover:bg-primary/5 ${i % 2 === 0 ? "bg-card" : "bg-background"}`,
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5 whitespace-nowrap", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "span",
-                  {
-                    className: "w-2 h-2 rounded-full flex-shrink-0",
-                    style: { background: SYSTEM_COLOR[m2.systemId] }
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs font-semibold text-foreground", children: SYSTEM_NAME[m2.systemId] ?? m2.systemId })
-              ] }) }),
-              visibleParams.map((p2) => {
-                const rawVal = m2[p2.id];
-                if (p2.id === "waterControl") {
-                  const cls = WATER_CONTROL_COLOR[String(rawVal)] ?? "text-muted-foreground border-border bg-muted/20";
-                  return /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "data-ocid": `comparison.table.row.${i + 1}`,
+              className: `border-b border-border/30 hover:bg-primary/5 transition-colors ${i % 2 === 0 ? "bg-card" : "bg-background"}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5 border-r border-border/30", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs font-semibold text-foreground", children: row.label }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5 border-r border-border/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[10px] text-muted-foreground leading-tight", children: row.description }) }),
+                filteredSystems.map((sysId) => {
+                  const val = row.values[sysId] ?? "–";
+                  const rating = row.ratings[sysId] ?? "neutral";
+                  const cls = RATING_CLASS[rating] ?? RATING_CLASS.neutral;
+                  return /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-3 py-2.5 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                     Badge,
                     {
                       variant: "outline",
-                      className: `font-mono text-[10px] uppercase tracking-wider ${cls}`,
-                      children: String(rawVal)
+                      className: `font-mono text-[9px] px-2 py-0.5 whitespace-nowrap ${cls}`,
+                      children: val
                     }
-                  ) }, p2.id);
-                }
-                return /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "td",
-                  {
-                    className: "px-3 py-2.5 font-mono text-xs text-foreground whitespace-nowrap",
-                    children: p2.id === "maxHeight" ? `${rawVal} m` : String(rawVal ?? "")
-                  },
-                  p2.id
-                );
-              })
-            ]
-          },
-          m2.systemId
-        )) })
-      ] })
+                  ) }, sysId);
+                })
+              ]
+            },
+            row.id
+          )) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-border/30 bg-muted/20 px-3 py-2 flex flex-wrap gap-x-4 gap-y-1.5 items-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-[9px] uppercase tracking-widest text-muted-foreground mr-1", children: "Rating:" }),
+          [
+            { rating: "best", label: "Best" },
+            { rating: "good", label: "Good" },
+            { rating: "moderate", label: "Moderate" },
+            { rating: "poor", label: "Poor" },
+            { rating: "worst", label: "Worst" }
+          ].map(({ rating, label }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Badge,
+            {
+              variant: "outline",
+              className: `font-mono text-[9px] px-1.5 py-0 ${RATING_CLASS[rating]}`,
+              children: label
+            },
+            rating
+          ))
+        ] })
+      ]
     }
   );
 }
@@ -22549,7 +23034,7 @@ function CostRangeChart({
       "data-ocid": "comparison.chart.cost_range",
       className: "rounded-md border border-border/40 bg-card p-4",
       children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] uppercase tracking-widest text-primary mb-3", children: "Cost Range ($/m²)" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] uppercase tracking-widest text-primary mb-3", children: "Cost Range ($/m\\u00b2)" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(ResponsiveContainer, { width: "100%", height: 220, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           BarChart,
           {
@@ -22728,9 +23213,8 @@ function MaxHeightLineChart({
   );
   const data = depths.map((d2) => {
     const row = { depth: d2 };
-    for (const m2 of filteredMetrics) {
+    for (const m2 of filteredMetrics)
       row[m2.systemId] = m2.maxHeight >= d2 ? m2.maxHeight : null;
-    }
     return row;
   });
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -22740,7 +23224,7 @@ function MaxHeightLineChart({
       className: "rounded-md border border-border/40 bg-card p-4",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] uppercase tracking-widest text-primary mb-3", children: "System Capability vs. Excavation Depth" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-muted-foreground mb-3", children: "Line ends where system max depth is exceeded (no capability shown as gap)." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-muted-foreground mb-3", children: "Line ends where system max depth is exceeded." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(ResponsiveContainer, { width: "100%", height: 220, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           LineChart,
           {
@@ -22837,59 +23321,54 @@ function Comparison() {
   function parseFromUrl() {
     const sp = new URLSearchParams(window.location.search);
     const rawSystems = sp.get("systems") ?? "";
-    const rawParams = sp.get("params") ?? "";
+    const rawRows = sp.get("rows") ?? "";
     const allSysIds = [...ALL_SYSTEM_IDS];
-    const allParamIdsStr = ALL_PARAMS.map((p2) => p2.id);
+    const allRowIds = ALL_METRIC_IDS;
     const parsedSystems = rawSystems ? rawSystems.split(",").filter((s2) => allSysIds.includes(s2)) : allSysIds;
-    const parsedParams = rawParams ? rawParams.split(",").filter((s2) => allParamIdsStr.includes(s2)) : allParamIdsStr;
+    const parsedRows = rawRows ? rawRows.split(",").filter((s2) => allRowIds.includes(s2)) : allRowIds;
     return {
       systems: parsedSystems.length > 0 ? parsedSystems : allSysIds,
-      params: parsedParams.length > 0 ? parsedParams : allParamIdsStr
+      rows: parsedRows.length > 0 ? parsedRows : allRowIds
     };
   }
   const initial = parseFromUrl();
   const [selectedSystems, setSelectedSystems] = reactExports.useState(
     initial.systems
   );
-  const [selectedParams, setSelectedParams] = reactExports.useState(
-    initial.params
-  );
-  function updateUrl(systems, params) {
+  const [selectedRows, setSelectedRows] = reactExports.useState(initial.rows);
+  function updateUrl(systems, rows) {
     const url = new URL(window.location.href);
     url.searchParams.set("systems", systems.join(","));
-    url.searchParams.set("params", params.join(","));
+    url.searchParams.set("rows", rows.join(","));
     window.history.replaceState(null, "", url.toString());
   }
   function toggleSystem(id) {
     const next = selectedSystems.includes(id) ? selectedSystems.filter((s2) => s2 !== id) : [...selectedSystems, id];
     setSelectedSystems(next);
-    updateUrl(next, selectedParams);
+    updateUrl(next, selectedRows);
   }
-  function toggleParam(id) {
-    const next = selectedParams.includes(id) ? selectedParams.filter((p2) => p2 !== id) : [...selectedParams, id];
-    setSelectedParams(next);
+  function toggleRow(id) {
+    const next = selectedRows.includes(id) ? selectedRows.filter((r) => r !== id) : [...selectedRows, id];
+    setSelectedRows(next);
     updateUrl(selectedSystems, next);
   }
   function handleSelectAllSystems() {
     const next = [...ALL_SYSTEM_IDS];
     setSelectedSystems(next);
-    updateUrl(next, selectedParams);
+    updateUrl(next, selectedRows);
   }
   function handleClearSystems() {
     setSelectedSystems([]);
-    updateUrl([], selectedParams);
+    updateUrl([], selectedRows);
   }
-  function handleSelectAllParams() {
-    const next = ALL_PARAMS.map((p2) => p2.id);
-    setSelectedParams(next);
+  function handleSelectAllRows() {
+    const next = ALL_METRIC_IDS;
+    setSelectedRows(next);
     updateUrl(selectedSystems, next);
   }
-  function handleClearParams() {
-    setSelectedParams([]);
+  function handleClearRows() {
+    setSelectedRows([]);
     updateUrl(selectedSystems, []);
-  }
-  function handleExportCSV() {
-    exportCSV(metrics, selectedSystems, selectedParams);
   }
   const activeCount = selectedSystems.length;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-full", children: [
@@ -22921,7 +23400,7 @@ function Comparison() {
           {
             type: "button",
             "data-ocid": "comparison.export_button",
-            onClick: handleExportCSV,
+            onClick: () => exportCSV(metrics, selectedSystems, selectedRows),
             className: "flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/50 bg-card hover:bg-primary/10 hover:border-primary/40 transition-colors font-mono text-[11px] text-foreground",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { className: "w-3.5 h-3.5" }),
@@ -22936,13 +23415,13 @@ function Comparison() {
         FilterPanel,
         {
           selectedSystems,
-          selectedParams,
+          selectedRows,
           onToggleSystem: toggleSystem,
-          onToggleParam: toggleParam,
+          onToggleRow: toggleRow,
           onSelectAllSystems: handleSelectAllSystems,
           onClearSystems: handleClearSystems,
-          onSelectAllParams: handleSelectAllParams,
-          onClearParams: handleClearParams
+          onSelectAllRows: handleSelectAllRows,
+          onClearRows: handleClearRows
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0 space-y-8", children: [
@@ -22950,22 +23429,18 @@ function Comparison() {
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-3", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-semibold text-sm text-foreground", children: "Performance Metrics Table" }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-mono text-[10px] text-muted-foreground", children: [
+              selectedRows.length,
+              " criteria · ",
               activeCount,
               " system",
-              activeCount !== 1 ? "s" : "",
-              " ·",
-              " ",
-              selectedParams.length,
-              " param",
-              selectedParams.length !== 1 ? "s" : ""
+              activeCount !== 1 ? "s" : ""
             ] })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            ComparisonTable,
+            MetricsTable,
             {
-              metrics,
               selectedSystems,
-              selectedParams
+              selectedRows
             }
           )
         ] }),
@@ -23021,6 +23496,30 @@ function Comparison() {
             },
             insight.title
           )) })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("section", { "data-ocid": "comparison.input_effects.section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-border/40 pt-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ChartNoAxesColumn, { className: "w-4 h-4 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-semibold text-sm text-foreground", children: "Input Parameters Effects" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] text-muted-foreground mb-4", children: "Sensitivity of soil, geometry, loading, and FEM parameters on each wall method. Collapsible by group." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InputEffectsTable, {})
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("section", { "data-ocid": "comparison.output_ranges.section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-border/40 pt-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ChartNoAxesColumn, { className: "w-4 h-4 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-semibold text-sm text-foreground", children: "Output Parameters Comparison" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] text-muted-foreground mb-4", children: "Typical numeric ranges for displacement, bending moment, stability, and load capacity per method. Click any method column header to sort." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(OutputRangesTable, {})
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("section", { "data-ocid": "comparison.graph_builder.section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-border/40 pt-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ChartLine, { className: "w-4 h-4 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display font-semibold text-sm text-foreground", children: "Interactive Parameter Graph" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-mono text-[10px] text-muted-foreground mb-4", children: "Select an input parameter (X-axis) and an output parameter (Y-axis) to visualize their relationship across all 6 methods." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(GraphBuilder, {})
         ] }) })
       ] })
     ] })

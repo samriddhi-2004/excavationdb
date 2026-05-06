@@ -46,10 +46,13 @@ export interface ComparisonMetric {
 export interface ResearchPaper {
   id: string;
   title: string;
+  authors?: string;
+  year?: number;
   method: string;
   keyParameters: string;
   categories: string[];
   abstract: string;
+  conclusion?: string;
   doiLink: string;
 }
 

@@ -1,3 +1,4 @@
+import { SystemDiagram } from "@/components/SystemDiagram";
 import { TechTable } from "@/components/TechTable";
 import type { ColumnDef } from "@/components/TechTable";
 import { Badge } from "@/components/ui/badge";
@@ -91,9 +92,13 @@ function StepList({ steps }: { steps: string[] }) {
 
 type TabData = NonNullable<ReturnType<typeof SYSTEM_DETAILS_RICH.get>>;
 
-function BasicTab({ data }: { data: TabData["basic"] }) {
+function BasicTab({
+  data,
+  systemId,
+}: { data: TabData["basic"]; systemId: string }) {
   return (
     <div className="space-y-5">
+      <SystemDiagram systemId={systemId} />
       <div>
         <SectionHeading>Description</SectionHeading>
         <ProseSection text={data.description} />
@@ -448,7 +453,9 @@ export default function SystemDetail() {
           </div>
         ) : (
           <div data-ocid={`system.${activeTab}.panel`}>
-            {activeTab === "basic" && <BasicTab data={richData.basic} />}
+            {activeTab === "basic" && (
+              <BasicTab data={richData.basic} systemId={systemId} />
+            )}
             {activeTab === "components" && (
               <ComponentsTab data={richData.components} />
             )}

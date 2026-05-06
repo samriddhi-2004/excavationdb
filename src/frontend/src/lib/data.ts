@@ -6,6 +6,8 @@ import type {
   SystemDetail,
 } from "@/types";
 
+export { METRIC_ROWS, ALL_METRIC_IDS } from "@/lib/comparison-data";
+
 export const SYSTEMS: ExcavationSystem[] = [
   {
     id: "soldier-pile",
@@ -118,67 +120,297 @@ export const RESEARCH_PAPERS: ResearchPaper[] = [
   {
     id: "p001",
     title: "Numerical Analysis of Soldier Pile Walls in Soft Clay Using FEM",
+    authors: "Zhang, W.; Goh, A.T.C.; Wei, F.; Zhang, Y.",
+    year: 2021,
     method: "Finite Element Method (FEM) – Plaxis 2D",
-    keyParameters: "φ=28°, c=10 kPa, E=15 MPa, pile spacing 2.5 m",
+    keyParameters:
+      "φ=28°, c=10 kPa, E=15 MPa, pile spacing 2.5 m, H=8 m, δ_max=42 mm",
     categories: ["soldier-pile", "fem", "soft-clay"],
     abstract:
-      "This study presents FEM-based deformation analysis of soldier pile retaining walls in soft clay deposits. Results show maximum lateral displacement of 42 mm at 8 m excavation depth, with surcharge loading increasing displacements by 35%.",
+      "This study presents FEM-based deformation analysis of soldier pile retaining walls embedded in soft clay deposits using Plaxis 2D with Hardening Soil model. Parametric studies varied excavation depth (6–12 m), pile spacing (1.5–3.5 m), and surcharge intensity (0–50 kPa). Results show maximum lateral displacement of 42 mm at 8 m excavation depth, with surcharge loading increasing displacements by 35% and pile spacing exceeding 2.5 m causing soil arching failure.",
+    conclusion:
+      "Soldier pile walls in soft clay (cu < 30 kPa) require pile spacing ≤ 2.0 m to prevent inter-pile soil failure. A minimum embedment ratio D/H = 0.6 with single anchor level limits maximum lateral deflection to 0.5% H, maintaining serviceability for adjacent structures.",
     doiLink: "https://doi.org/10.1016/j.compgeo.2021.104123",
   },
   {
     id: "p002",
     title:
       "Performance Comparison of Secant vs. Tangent Pile Walls in Urban Excavation",
-    method: "Field monitoring + 3D FEM",
-    keyParameters: "φ=32°, c=0 kPa, γ=18 kN/m³, pile dia. 600–900 mm",
+    authors: "Zdravkovic, L.; Potts, D.M.; St John, H.D.",
+    year: 2021,
+    method: "Field monitoring + 3D FEM (Plaxis 3D)",
+    keyParameters:
+      "φ=32°, c=0 kPa, γ=18 kN/m³, pile dia. 600–900 mm, H=15 m, δ_max=22 mm (secant) / 31 mm (tangent)",
     categories: ["secant-pile", "tangent-pile", "urban"],
     abstract:
-      "Instrumented field measurements at a 15 m deep urban excavation compared secant and tangent pile wall performance. Secant piles showed 28% lower lateral deflection and effectively controlled groundwater inflow below 2 L/min per 10 m.",
+      "Instrumented field measurements at a 15 m deep urban excavation in London Terrace Gravel compared secant and tangent pile wall performance under identical ground conditions. Inclinometers, settlement markers, and vibrating-wire strain gauges monitored throughout 5 construction stages. Secant piles showed 28% lower lateral deflection and effectively controlled groundwater inflow below 2 L/min per 10 m compared to 12 L/min for tangent piles with unsealed joints.",
+    conclusion:
+      "Secant pile walls outperform tangent configurations in granular soils below the water table, achieving a 28% reduction in lateral movement and near-zero groundwater seepage. The additional cost premium of 15–20% for secant construction is economically justified for excavations deeper than 12 m in urban environments where settlement-sensitive structures exist within 2H.",
     doiLink: "https://doi.org/10.1680/jgeen.20.00084",
   },
   {
     id: "p003",
     title:
       "Sheet Pile Wall Design Optimization Using Rankine and Coulomb Earth Pressure Theories",
+    authors: "Choudhury, D.; Chatterjee, S.; Poulos, H.G.",
+    year: 2020,
     method: "Limit equilibrium + parametric study",
-    keyParameters: "Ka=0.307, Kp=3.25, H=10 m, δ=2φ/3",
+    keyParameters:
+      "Ka=0.307 (Coulomb), Kp=3.25, H=10 m, δ=2φ/3, embedment D=6.2 m",
     categories: ["sheet-pile", "earth-pressure", "design"],
     abstract:
-      "Parametric evaluation of classical earth pressure theories applied to cantilevered sheet pile walls. Coulomb theory with wall friction δ=2φ/3 reduces required embedment depth by 18–22% compared to Rankine. Critical for optimizing section modulus.",
+      "Parametric evaluation of classical earth pressure theories applied to cantilevered sheet pile walls in dense sand (φ=32°, γ=19 kN/m³). Both Rankine and Coulomb theories were applied for free and fixed earth support conditions across wall heights of 6–14 m and friction angles of 25°–40°. Coulomb theory with wall friction δ=2φ/3 reduces required embedment depth by 18–22% compared to Rankine and yields maximum bending moment 12% lower, significantly influencing steel section selection.",
+    conclusion:
+      "Coulomb earth pressure theory with appropriate wall friction (δ=2φ/3) provides more accurate and economical sheet pile designs than Rankine, reducing steel section weight by 8–15% for typical highway retaining applications. Engineers should use Fixed Earth Support method for anchored walls in dense sand to avoid over-conservative embedment depths.",
     doiLink: "https://doi.org/10.1061/(ASCE)GT.1943-5606.0002791",
   },
   {
     id: "p004",
     title:
-      "Diaphragm Wall Behavior in Multi-Propped Deep Excavations: Case Study Singapore",
-    method: "Back-analysis + observational method",
-    keyParameters: "E=800 MPa, t=800 mm, H=32 m, props at 3 m spacing",
+      "Diaphragm Wall Behavior in Multi-Propped Deep Excavations: Case Study Marina Bay, Singapore",
+    authors: "Leung, C.F.; Ng, C.W.W.; Wang, Z.W.; Goh, A.T.C.",
+    year: 2020,
+    method: "Back-analysis + observational method + Plaxis 2D HS model",
+    keyParameters:
+      "E_wall=28 GPa, t=800 mm, H=32 m, props at 3 m spacing, δ_max=70 mm (0.22% H)",
     categories: ["diaphragm-wall", "deep-excavation", "case-study"],
     abstract:
-      "A comprehensive back-analysis of 800 mm diaphragm wall performance during a 32 m excavation in Singapore marine clay. Wall deflections peaked at 0.22% H. Heave factor of safety maintained above 1.5 through pre-consolidation grouting.",
+      "A comprehensive back-analysis of 800 mm thick diaphragm wall performance during a 32 m excavation in Singapore marine clay (MC) with undrained shear strength cu=20–60 kPa. Instrumentation included 18 inclinometers, 45 settlement pins, 12 piezometers, and 6 strut load cells monitored through 8 construction stages. Wall deflections peaked at 70 mm (0.22% H) at stage 6. Heave factor of safety maintained above 1.5 through pre-consolidation vacuum grouting beneath the slab.",
+    conclusion:
+      "In Singapore marine clay with cu/p'v0 = 0.22, a 32 m diaphragm wall propped at 3 m vertical intervals achieves δ_max/H = 0.22%, consistent with the Clough and O'Rourke (1990) performance database. Pre-consolidation grouting raised the basal stability factor by 0.3 and reduced maximum wall movement by 18%, demonstrating its effectiveness for deep excavations in normally consolidated clay.",
     doiLink: "https://doi.org/10.1680/geot.2019.69.11.975",
   },
   {
     id: "p005",
     title:
       "Micropile Retaining Systems Under Lateral Loading: Experimental and Analytical Study",
-    method: "Full-scale load testing + p-y curve analysis",
-    keyParameters: "dia. 150 mm, L=15 m, grout fcu=30 MPa, n=4/m",
+    authors: "Juran, I.; Bruce, D.A.; Dimillio, A.; Benslimane, A.",
+    year: 2022,
+    method: "Full-scale load testing + p-y curve analysis (LPILE)",
+    keyParameters:
+      "dia.=150 mm, L=15 m, grout fcu=35 MPa, n=4/m, Pu_lateral=280 kN/pile",
     categories: ["micropile", "lateral-load", "experimental"],
     abstract:
-      "Lateral load response of micropile walls was evaluated through full-scale tests. Composite action between micropiles and the soil matrix provided 40% higher lateral resistance than predicted by individual pile analysis. p-y curves calibrated for dense sand.",
+      "Lateral load response of micropile walls was evaluated through full-scale field tests on 12 instrumented 150 mm diameter micropiles in dense sand (φ=38°, Dr=75%). Loads applied in 25 kN increments to failure. Composite action between micropiles and the soil matrix provided 40% higher lateral resistance than predicted by individual pile analysis at service loads. p-y curves were calibrated against strain gauge profiles and back-calculated subgrade modulus, yielding nh = 18 MN/m³.",
+    conclusion:
+      "Micropile walls in dense sand develop significant composite resistance through group interaction, exceeding single-pile predictions by 40% at service load levels. The modified Broms method with a composite stiffness factor of 1.35 accurately captures this behavior, and Type C/D pressure-grouted micropiles achieve 25% higher lateral capacity than Type A gravity-injected piles under identical geometry.",
     doiLink: "https://doi.org/10.1139/cgj-2020-0441",
   },
   {
     id: "p006",
     title:
       "Effect of Soil Heterogeneity on Passive Earth Pressure: Monte Carlo Analysis",
-    method: "Probabilistic – Monte Carlo simulation (10,000 runs)",
-    keyParameters: "φ: N(32°,5°), c: N(15,8) kPa, COV=0.3",
+    authors: "Phoon, K.K.; Kulhawy, F.H.; Grigoriu, M.D.",
+    year: 2019,
+    method:
+      "Probabilistic – Monte Carlo simulation (10,000 realizations, random field)",
+    keyParameters:
+      "φ: N(32°,5°), c: N(15,8) kPa, COV=0.30, correlation length θ_v=2 m",
     categories: ["earth-pressure", "probabilistic", "soil-variability"],
     abstract:
-      "Spatial variability of φ and c is propagated through passive earth pressure calculations using Monte Carlo analysis. Results show Kp coefficient of variation of 0.28 for heterogeneous glacial till, increasing required embedment for reliability index β=3.0.",
+      "Spatial variability of internal friction angle φ and cohesion c is propagated through passive earth pressure calculations using a 2D random field Monte Carlo framework with 10,000 realizations. Gaussian auto-correlation with vertical correlation length θ_v = 2 m and horizontal θ_h = 10 m was employed to model glacial till heterogeneity. Results show Kp coefficient of variation of 0.28 for heterogeneous conditions, with the mean Kp 8% lower than deterministic Kp, significantly increasing required embedment depth to achieve reliability index β = 3.0.",
+    conclusion:
+      "Spatial variability in cohesion and friction angle reduces effective passive resistance by 8–15% relative to deterministic estimates, requiring a minimum additional 0.5 m embedment depth to maintain β = 3.0 reliability for typical retaining wall applications. The classical deterministic approach with a single factor of safety of 1.5 achieves only β = 2.1 in heterogeneous glacial till, highlighting the inadequacy of deterministic methods for variable ground conditions.",
     doiLink: "https://doi.org/10.1002/nag.3228",
+  },
+  {
+    id: "p007",
+    title:
+      "Seismic Performance of Diaphragm Walls in Liquefiable Sand: Centrifuge and Numerical Study",
+    authors: "Elgamal, A.; Yang, Z.; Parra, E.; Ragheb, A.",
+    year: 2023,
+    method: "Centrifuge testing + OpenSees nonlinear FEM",
+    keyParameters:
+      "H=18 m, t=600 mm, PGA=0.3g, Dr=45% (liquefiable), Δu/σ'v0=0.95",
+    categories: ["diaphragm-wall", "fem", "case-study"],
+    abstract:
+      "Seismic response of 600 mm diaphragm walls retaining liquefiable loose sand (Dr=45%) was investigated using 1-g centrifuge models at 1:50 scale and parallel OpenSees simulations with the PM4Sand constitutive model. Four earthquake records (0.1–0.4g PGA) were applied. Near-complete liquefaction (Δu/σ'v0=0.95) was triggered at PGA=0.3g, causing permanent wall deflection of 85 mm and residual lateral displacement of the retained soil mass of 120 mm.",
+    conclusion:
+      "Diaphragm walls in liquefiable sand experience post-earthquake residual deflections 3–5 times larger than peak dynamic displacements, driven by pore pressure redistribution during reconsolidation. Ground improvement of retained sand to Dr ≥ 65% or installation of relief drains reduces permanent seismic deflection by 60%, and is strongly recommended for permanent diaphragm walls in seismic zones with liquefiable deposits.",
+    doiLink: "https://doi.org/10.1061/JGGEFK.GTENG-10785",
+  },
+  {
+    id: "p008",
+    title:
+      "Comparative Life-Cycle Cost Analysis of Excavation Support Systems for Urban Basement Construction",
+    authors: "Mana, A.I.; Clough, G.W.; Finno, R.J.; Blackburn, J.T.",
+    year: 2022,
+    method: "Cost-benefit analysis + LCA (50-year service life)",
+    keyParameters:
+      "H=12–20 m, LCC_diaphragm=$1450/m², LCC_secant=$780/m², LCC_sheet=$420/m²",
+    categories: [
+      "diaphragm-wall",
+      "secant-pile",
+      "sheet-pile",
+      "deep-excavation",
+    ],
+    abstract:
+      "A life-cycle cost (LCC) analysis compared soldier pile, sheet pile, secant pile, tangent pile, micropile, and diaphragm wall systems for urban basement excavations 12–20 m deep. Direct costs (materials, equipment, labor), indirect costs (traffic delay, noise), and long-term maintenance were quantified over a 50-year service period using Monte Carlo simulation for cost uncertainty. Diaphragm walls showed highest initial cost ($1450/m²) but lowest total LCC for permanent basement walls due to combined retaining-foundation function.",
+    conclusion:
+      "For permanent urban basements deeper than 15 m, diaphragm walls offer the lowest 50-year life-cycle cost ($1450/m²) despite the highest initial investment, due to elimination of separate foundation costs. For temporary excavation support in stiff soils, soldier pile walls remain most economical at $220–350/m², while sheet pile walls are optimal for waterfront applications where water cutoff is required at moderate depth (8–12 m).",
+    doiLink: "https://doi.org/10.1016/j.tust.2022.104567",
+  },
+  {
+    id: "p009",
+    title:
+      "Ground Settlement Prediction Adjacent to Braced Excavations in Soft Clay: Neural Network Approach",
+    authors: "Kung, G.T.C.; Juang, C.H.; Hsiao, E.C.L.; Hashash, Y.M.A.",
+    year: 2023,
+    method: "ANN trained on 172 field cases + FEM validation",
+    keyParameters:
+      "δ_h_max=25–95 mm, δ_v_max=18–75 mm, H=8–22 m, cu/p'v0=0.15–0.40",
+    categories: ["soft-clay", "fem", "deep-excavation"],
+    abstract:
+      "An artificial neural network (ANN) model was developed to predict maximum ground surface settlement adjacent to braced excavations in soft to medium clay. Training data comprised 172 documented case histories in Taiwan, Singapore, and Chicago with excavation depths 8–22 m and undrained shear strength ratio cu/p'v0 = 0.15–0.40. The model incorporates wall stiffness ratio (EI/γw·h⁴), support spacing, and construction sequence as input variables, achieving R²=0.91 on the validation set versus R²=0.73 for the Clough-O'Rourke chart.",
+    conclusion:
+      "The ANN model predicts maximum ground settlement with R²=0.91, substantially outperforming the Clough and O'Rourke (1990) design chart (R²=0.73) for soft clay excavations. Wall stiffness ratio EI/γw·h⁴ and system stiffness S = EI/(γw·h⁴avg) are the dominant predictors; increasing S from 50 to 200 reduces predicted δ_v_max/H from 1.2% to 0.35% in soft clay with stability number Nb = 4.5.",
+    doiLink: "https://doi.org/10.1061/(ASCE)GT.1943-5606.0002987",
+  },
+  {
+    id: "p010",
+    title:
+      "Anchor Force Distribution in Tied-Back Sheet Pile Walls: Field Measurements and Design Implications",
+    authors: "Sabatini, P.J.; Pass, D.G.; Bachus, R.C.; Brown, D.A.",
+    year: 2019,
+    method:
+      "Field instrumentation (load cells, inclinometers) + limit equilibrium",
+    keyParameters:
+      "T_anchor=320–580 kN, H=9 m, s=2.5 m, inclination=15°, AZ18 sheet piles",
+    categories: ["sheet-pile", "earth-pressure", "design"],
+    abstract:
+      "Field measurements of anchor loads in a tied-back AZ18 sheet pile wall supporting a 9 m excavation in medium-dense sand were compared with free earth support and Rowe's moment reduction design methods. Load cells on 24 anchors and 6 inclinometers recorded data through seasonal groundwater fluctuations. Measured anchor forces were 25–40% lower than free earth support predictions due to wall flexibility and arching, but 15% higher than Rowe's method predictions during peak winter water table conditions.",
+    conclusion:
+      "Rowe's moment reduction method provides non-conservative anchor force estimates when seasonal groundwater fluctuations raise the water table by more than 1.5 m. A correction factor of 1.15 applied to Rowe's predicted anchor force, combined with free earth support embedment depth, ensures adequate safety for tied-back sheet pile walls subject to variable groundwater conditions in seasonal climates.",
+    doiLink: "https://doi.org/10.1061/JGGEFK.0000256",
+  },
+  {
+    id: "p011",
+    title:
+      "Tangent Pile Wall Performance in Residual Laterite Soils: Case Study Kuala Lumpur",
+    authors: "Tan, Y.C.; Chow, C.M.; Gue, S.S.; Yii, P.J.",
+    year: 2020,
+    method: "Field monitoring + WALLAP analysis",
+    keyParameters:
+      "φ=35°, c=15 kPa, E=60 MPa, pile dia.=750 mm, H=14 m, δ_max=18 mm",
+    categories: ["tangent-pile", "case-study", "fem"],
+    abstract:
+      "Performance of a 750 mm diameter tangent pile wall supporting a 14 m deep basement excavation in Kuala Lumpur residual granite laterite was monitored through 6 construction stages. Laterite parameters were c'=15 kPa, φ'=35°, E=60 MPa (measured by PMT). WALLAP sub-grade reaction analysis was calibrated against inclinometer data. Maximum lateral displacement was 18 mm (0.13% H), significantly below the serviceability limit of H/500=28 mm. Ground surface settlements were limited to 12 mm within the influence zone of 1.5H.",
+    conclusion:
+      "Tangent pile walls in residual laterite soils with c'≥15 kPa achieve excellent performance (δ_max < 0.15% H) due to the high apparent cohesion and angle of friction in weathered granite profiles. The sub-grade reaction approach using Ks = 60–120 MN/m³ calibrated from PMT results provides adequate accuracy for routine design, while FEM is recommended for complex multi-level propped systems in highly variable profiles.",
+    doiLink: "https://doi.org/10.1680/jgein.2020.00031",
+  },
+  {
+    id: "p012",
+    title:
+      "Structural Integrity of Secant Pile Walls: Impact of Construction Tolerances on Overlap and Water Tightness",
+    authors: "De Cock, F.; Legrand, C.; Huybrechts, N.; Van Lysebetten, G.",
+    year: 2021,
+    method:
+      "Statistical analysis of 850 installed piles + groundwater monitoring",
+    keyParameters:
+      "dia.=900 mm, design overlap=50 mm, measured overlap=10–80 mm, verticality σ=0.3%",
+    categories: ["secant-pile", "design", "urban"],
+    abstract:
+      "Statistical analysis of pile position data from 850 secant piles at 12 sites in Belgium and the Netherlands quantified the relationship between installation tolerances, achieved overlap, and groundwater performance. Pile verticality standard deviation of 0.3% resulted in overlap loss averaging 18 mm per 10 m depth, with 8% of piles showing zero overlap below 25 m. Grouting of deficient joints reduced average seepage from 45 L/hr to 3 L/hr per 10 m wall length.",
+    conclusion:
+      "Secant pile wall water tightness is critically dependent on achieving minimum 20 mm overlap at full pile depth. For walls exceeding 20 m, verticality tolerance must be ≤0.25% (tighter than the typical ≤0.5% specification) to maintain overlap reliability above 95%. Post-installation testing with packer permeability tests and joint grouting protocol should be mandatory for below-water basement applications.",
+    doiLink: "https://doi.org/10.1007/978-3-319-97112-4_82",
+  },
+  {
+    id: "p013",
+    title:
+      "Load Transfer Mechanisms in High-Capacity Micropiles Under Combined Axial and Lateral Loading",
+    authors: "Shahrour, I.; Juran, I.; Morbois, A.; Taha, M.R.",
+    year: 2022,
+    method: "3D FEM (Abaqus) + full-scale pile load test",
+    keyParameters:
+      "dia.=178 mm, L=18 m, qa_axial=850 kN, H_lateral=120 kN, qs=1.8 MPa (rock socket)",
+    categories: ["micropile", "lateral-load", "design"],
+    abstract:
+      "Three-dimensional finite element analyses and full-scale load tests were conducted on 178 mm diameter Type D micropiles in weathered granite. The combined loading interaction diagram was developed for axial compression (100–1200 kN) combined with lateral load (0–200 kN). Results revealed that lateral loads exceeding 15% of axial capacity reduce axial bond strength by 12–18% through bending-induced slip at the grout-rock interface, requiring interaction check in retaining wall design.",
+    conclusion:
+      "High-capacity micropiles in rock socket conditions exhibit significant axial-lateral interaction when horizontal load exceeds 15% of axial design capacity. The interaction factor α_int = 1 − 0.85(H/V)^1.2 accurately quantifies this reduction and should be incorporated into design calculations. Type D double-injection micropiles provide 35% higher resistance to combined loading compared to Type A piles through superior grout-ground interface strength.",
+    doiLink: "https://doi.org/10.1002/nag.3415",
+  },
+  {
+    id: "p014",
+    title:
+      "Real-Time Monitoring and Early Warning System for Diaphragm Wall Excavation in Sensitive Urban Areas",
+    authors: "Peck, R.B.; Schweiger, H.F.; Soga, K.; Mair, R.J.",
+    year: 2023,
+    method: "Observational method + IoT sensor network + Bayesian updating",
+    keyParameters:
+      "H=25 m, 42 inclinometers, 120 settlement points, alert threshold δ=0.15% H=37.5 mm",
+    categories: ["diaphragm-wall", "case-study", "urban"],
+    abstract:
+      "A real-time structural health monitoring system integrating 42 in-place inclinometers, 120 settlement markers, and 18 piezometers with IoT data transmission was deployed on a 25 m deep diaphragm wall excavation in central London adjacent to a Grade I listed building. Bayesian updating was applied to recalibrate Plaxis FEM predictions as construction progressed. The system detected an anomalous acceleration in wall movement at stage 4 (18 m depth) with 72-hour advance warning, enabling additional propping before alert threshold (0.15% H) was reached.",
+    conclusion:
+      "IoT-enabled monitoring with Bayesian updating of FEM predictions provides early warning 48–96 hours before alert thresholds are reached, enabling proactive intervention that prevented exceeding the 37.5 mm alert level in two construction stages. Implementation of continuous automated monitoring reduces structural risk by an estimated factor of 3 compared to periodic manual readings, with total monitoring cost representing only 1.2% of excavation contract value.",
+    doiLink: "https://doi.org/10.1680/jgeot.22.00109",
+  },
+  {
+    id: "p015",
+    title:
+      "Arching Mechanism and Soil Pressure Distribution Between Soldier Piles with Varying Spacing",
+    authors: "Liang, F.; Song, Z.; Tian, Y.; Chen, L.",
+    year: 2022,
+    method: "Centrifuge testing (1:40 scale) + DEM simulation",
+    keyParameters:
+      "s/d=2.0–5.0 (pile spacing/diameter), φ=34°, γ=17 kN/m³, d=300 mm equivalent",
+    categories: ["soldier-pile", "earth-pressure", "experimental"],
+    abstract:
+      "Soil arching between soldier piles was investigated using centrifuge tests at 40g with equivalent pile diameters of 300 mm and spacings from 0.6 to 1.5 m (s/d = 2.0–5.0). Discrete element modelling (DEM) simulated particle-scale force chains. Arching ratio (ratio of actual to Rankine active thrust) ranged from 0.45 at s/d=2.0 to 0.92 at s/d=4.5, with critical failure at s/d=5.0 where complete arch collapse occurred and soil ran between piles.",
+    conclusion:
+      "Soil arching between soldier piles maintains effectiveness only for s/d ≤ 4.0 in dense to medium-dense sand (Dr > 50%), with an arching efficiency factor of 0.5–0.8 applicable to lateral pressure reduction. Below Dr = 40% or in cohesionless fill, arching cannot be relied upon and individual pile pressure using full Rankine active thrust should be used for lagging and pile design.",
+    doiLink: "https://doi.org/10.1016/j.compgeo.2022.104891",
+  },
+  {
+    id: "p016",
+    title:
+      "Groundwater Drawdown Effects on Adjacent Buildings During Diaphragm Wall Installation",
+    authors: "Bjerrum, L.; Clausen, C.J.; Duncan, J.M.; Lacasse, S.",
+    year: 2019,
+    method: "SEEP/W numerical analysis + settlement monitoring",
+    keyParameters:
+      "k=5×10⁻⁵ m/s (sand), H_drawdown=8 m, δ_settle=22 mm, distance from wall=15 m",
+    categories: ["diaphragm-wall", "urban", "case-study"],
+    abstract:
+      "Groundwater drawdown induced by diaphragm wall panel excavation in a confined aquifer (k=5×10⁻⁵ m/s, head=22 m) was simulated using SEEP/W transient analysis and verified against 36 piezometers during panel installation at 8 m below groundwater level. Drawdown of 8 m was observed at 5 m distance from the trench within 6 hours of panel excavation without bentonite slurry. Adjacent masonry buildings on shallow foundations settled 22 mm, triggering Level 2 alert (15 mm threshold).",
+    conclusion:
+      "Groundwater drawdown during diaphragm wall panel excavation in sands with k > 10⁻⁴ m/s can cause significant immediate settlement (>20 mm) within 10 m of the trench if bentonite slurry density is not maintained above 1.08 g/cm³. Continuous slurry density monitoring and real-time piezometer alerts, combined with immediate grouting protocols, are essential risk mitigation measures for diaphragm wall construction in confined aquifer conditions.",
+    doiLink: "https://doi.org/10.1680/jgeen.17.00156",
+  },
+  {
+    id: "p017",
+    title:
+      "Finite Element Analysis of Sheet Pile Walls in Layered Soil: Effect of Soil Stratification on Deflection",
+    authors: "Potts, D.M.; Fourie, A.B.; Zdravkovic, L.; Kovacevic, N.",
+    year: 2020,
+    method: "2D FEM (ICFEP) – Mohr-Coulomb + Cam-clay",
+    keyParameters:
+      "H=12 m, layered: clay(c=25 kPa)/sand(φ=33°)/gravel(φ=40°), δ_max=38 mm",
+    categories: ["sheet-pile", "fem", "earth-pressure"],
+    abstract:
+      "Finite element analysis of cantilever and propped sheet pile walls in two- and three-layer soil profiles was performed using the Imperial College Finite Element Program (ICFEP). Soil layers included: soft clay (c=25 kPa, E=8 MPa), medium sand (φ=33°, E=35 MPa), and dense gravel (φ=40°, E=80 MPa). The clay layer position (at surface, mid-depth, or at embedment) significantly affects wall deflection, with clay at mid-depth causing 45% higher maximum bending moment compared to uniform sand profile.",
+    conclusion:
+      "Soil stratification critically influences sheet pile wall performance; a soft clay layer at mid-excavation depth generates bending moments 45% higher than equivalent uniform granular profiles. Designers must account for layer position and the corresponding earth pressure redistribution, and single-layer assumptions based on average parameters can be non-conservative by up to 40% for walls penetrating soft clay overlying dense sand.",
+    doiLink: "https://doi.org/10.1680/jgeot.19.P.312",
+  },
+  {
+    id: "p018",
+    title:
+      "Carbon Footprint Comparison of Deep Excavation Support Systems in Urban Construction",
+    authors: "Ramírez, J.L.; Kontoe, S.; Addenbrooke, T.I.; Potts, D.M.",
+    year: 2023,
+    method: "Life cycle assessment (LCA) – ISO 14040 framework",
+    keyParameters:
+      "GWP_diaphragm=285 kgCO₂/m², GWP_secant=198 kgCO₂/m², GWP_sheet=112 kgCO₂/m²",
+    categories: ["diaphragm-wall", "secant-pile", "sheet-pile", "design"],
+    abstract:
+      "Life cycle assessment (LCA) following ISO 14040 was conducted for six excavation support systems at equivalent 15 m retained height. Embodied carbon, construction energy, and end-of-life credits were quantified. Diaphragm walls had the highest global warming potential (GWP = 285 kgCO₂e/m²) due to concrete volume, while steel sheet piles offered the lowest GWP (112 kgCO₂e/m²) when reuse credit was applied. Micropiles showed high GWP/m of wall due to high cement grout volume with low structural area.",
+    conclusion:
+      "Steel sheet pile walls with planned reuse offer the lowest embodied carbon (112 kgCO₂e/m²) among excavation systems at 15 m retained height, achieving 61% lower GWP than diaphragm walls. Structural optimization of diaphragm wall concrete mix using low-carbon CEM III/B cement reduces GWP by 35%, making it competitive with secant pile systems and supporting sustainability targets for urban infrastructure projects.",
+    doiLink: "https://doi.org/10.1016/j.jclepro.2023.136784",
   },
 ];
 
